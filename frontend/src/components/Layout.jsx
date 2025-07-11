@@ -166,7 +166,7 @@ const Layout = ({ children }) => {
         {isMobile && (
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="fixed top-20 left-4 z-30 p-2 bg-zinc-800 rounded-full border border-zinc-700 hover:bg-zinc-700 transition-colors"
+            className="fixed top-28 left-4 z-30 p-2 bg-zinc-800 rounded-full border border-zinc-700 hover:bg-zinc-700 transition-colors"
           >
             <Users className="w-5 h-5 text-white" />
           </button>
