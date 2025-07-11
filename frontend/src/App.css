@@ -1,7 +1,7 @@
 /* Custom styles for the crypto community app */
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+  background-color: rgb(9 9 11 / var(--tw-bg-opacity, 1));
 }
 
 /* Remove default margin and padding */
@@ -22,16 +22,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #18181b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: #3f3f46;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #52525b;
 }
 
 /* Line clamp utilities */
@@ -72,7 +72,7 @@
 
 /* Glassmorphism effect */
 .glass-effect {
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(24, 24, 27, 0.8);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -94,16 +94,15 @@
     padding-right: 0;
   }
   
-  /* Mobile trending topics bottom sheet */
-  .mobile-trending {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(71, 85, 105, 0.5);
-    z-index: 40;
+  /* Mobile article cards - vertical layout */
+  .mobile-article-card {
+    flex-direction: column;
+  }
+  
+  .mobile-article-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 16px;
   }
   
   /* Adjust card layouts for mobile */
@@ -119,7 +118,7 @@
 
 /* Loading states */
 .loading-skeleton {
-  background: linear-gradient(90deg, #334155 25%, #475569 50%, #334155 75%);
+  background: linear-gradient(90deg, #27272a 25%, #3f3f46 50%, #27272a 75%);
   background-size: 200% 100%;
   animation: loading 1.5s infinite;
 }
@@ -180,4 +179,44 @@
 .card-hover:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+}
+
+/* Custom button styles */
+.sentinel-button {
+  background-color: #1B1D23;
+  background-image: linear-gradient(90deg, #4F5961, #1B1D23);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.sentinel-button:hover {
+  background-image: linear-gradient(90deg, #5a6670, #2a2d35);
+}
+
+/* Article card mobile styles */
+@media (max-width: 767px) {
+  .article-card-mobile .article-image {
+    width: 100% !important;
+    height: 200px !important;
+    margin-bottom: 1rem;
+  }
+  
+  .article-card-mobile .article-content {
+    width: 100%;
+  }
+}
+
+/* Responsive text adjustments */
+@media (max-width: 640px) {
+  .mobile-text-adjust h1 {
+    font-size: 1.875rem;
+  }
+  
+  .mobile-text-adjust h2 {
+    font-size: 1.5rem;
+  }
+  
+  .mobile-text-adjust h3 {
+    font-size: 1.25rem;
+  }
 }

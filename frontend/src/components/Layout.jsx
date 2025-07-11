@@ -76,7 +76,7 @@ const Layout = ({ children }) => {
   const mainMargin = isSidebarMinimized ? 'ml-16' : 'ml-64';
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="flex min-h-screen" style={{ backgroundColor: 'rgb(9 9 11)' }}>
       {/* Mobile Overlay */}
       {isMobile && isMobileMenuOpen && (
         <div 
@@ -92,7 +92,7 @@ const Layout = ({ children }) => {
               isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
             } w-64`
           : `${sidebarWidth} fixed left-0 top-16 h-full z-30 transition-all duration-300`
-      } bg-slate-900 border-r border-slate-800`}>
+      } bg-zinc-900 border-r border-zinc-800`}>
         <div className="p-4">
           {/* Community Header */}
           <div className="flex items-center justify-between mb-6">
@@ -109,7 +109,7 @@ const Layout = ({ children }) => {
             {isMobile && (
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 hover:bg-slate-800 rounded-full transition-colors"
+                className="p-2 hover:bg-zinc-800 rounded-full transition-colors"
               >
                 <X className="w-5 h-5 text-slate-400" />
               </button>
@@ -119,7 +119,7 @@ const Layout = ({ children }) => {
             {!isMobile && (
               <button
                 onClick={() => setIsSidebarMinimized(!isSidebarMinimized)}
-                className="p-2 hover:bg-slate-800 rounded-full transition-colors"
+                className="p-2 hover:bg-zinc-800 rounded-full transition-colors"
               >
                 {isSidebarMinimized ? 
                   <ChevronRight className="w-5 h-5 text-slate-400" /> : 
@@ -139,7 +139,7 @@ const Layout = ({ children }) => {
                 className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-colors group ${
                   isActive(item.path)
                     ? 'bg-gradient-to-r from-orange-500/20 to-red-600/20 text-orange-400 border-l-4 border-orange-500'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                    : 'text-slate-400 hover:text-white hover:bg-zinc-800'
                 } ${isSidebarMinimized && !isMobile ? 'justify-center' : ''}`}
                 title={isSidebarMinimized && !isMobile ? item.name : undefined}
               >
@@ -161,7 +161,7 @@ const Layout = ({ children }) => {
         {isMobile && (
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="fixed top-20 left-4 z-30 p-2 bg-slate-800 rounded-full border border-slate-700 hover:bg-slate-700 transition-colors"
+            className="fixed top-20 left-4 z-30 p-2 bg-zinc-800 rounded-full border border-zinc-700 hover:bg-zinc-700 transition-colors"
           >
             <Users className="w-5 h-5 text-white" />
           </button>
@@ -172,10 +172,10 @@ const Layout = ({ children }) => {
 
       {/* Right Sidebar - Trending & Recommendations - Hidden on Mobile */}
       {!isMobile && (
-        <div className="w-80 bg-slate-900 border-l border-slate-800 fixed right-0 top-16 h-full overflow-y-auto z-30">
+        <div className="w-80 bg-zinc-900 border-l border-zinc-800 fixed right-0 top-16 h-full overflow-y-auto z-30">
           <div className="p-6 space-y-6">
             {/* Trending Topics */}
-            <Card className="bg-slate-800 border-slate-700">
+            <Card className="bg-zinc-800 border-zinc-700">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2 text-white">
                   <TrendingUp className="w-5 h-5 text-orange-400" />
@@ -186,7 +186,7 @@ const Layout = ({ children }) => {
                 {trendingTopics.map((topic, index) => (
                   <div 
                     key={index} 
-                    className="flex items-center justify-between p-3 rounded-lg bg-slate-700/50 hover:bg-slate-700 transition-colors cursor-pointer group"
+                    className="flex items-center justify-between p-3 rounded-lg bg-zinc-700/50 hover:bg-zinc-700 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center space-x-3">
                       <span className="text-slate-500 text-sm font-medium w-4">
@@ -208,7 +208,7 @@ const Layout = ({ children }) => {
             </Card>
 
             {/* Recommended Accounts */}
-            <Card className="bg-slate-800 border-slate-700">
+            <Card className="bg-zinc-800 border-zinc-700">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2 text-white">
                   <Users className="w-5 h-5 text-orange-400" />
@@ -217,7 +217,7 @@ const Layout = ({ children }) => {
               </CardHeader>
               <CardContent className="space-y-6">
                 {recommendedAccounts.map((account, index) => (
-                  <div key={index} className="border-b border-slate-700 pb-4 last:border-0">
+                  <div key={index} className="border-b border-zinc-700 pb-4 last:border-0">
                     {/* Account Header */}
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center space-x-3">
@@ -242,7 +242,11 @@ const Layout = ({ children }) => {
                       </div>
                       <Button 
                         size="sm" 
-                        className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white text-xs px-3 py-1"
+                        className="text-white text-xs px-3 py-1"
+                        style={{
+                          backgroundColor: '#1B1D23',
+                          backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
+                        }}
                       >
                         <UserPlus className="w-3 h-3 mr-1" />
                         Follow
@@ -252,7 +256,7 @@ const Layout = ({ children }) => {
                     {/* Recent Posts */}
                     <div className="space-y-2">
                       {account.recentPosts.map((post, postIndex) => (
-                        <div key={postIndex} className="bg-slate-700/30 rounded-lg p-2">
+                        <div key={postIndex} className="bg-zinc-700/30 rounded-lg p-2">
                           <p className="text-slate-300 text-xs mb-1">
                             {post.text}
                           </p>
