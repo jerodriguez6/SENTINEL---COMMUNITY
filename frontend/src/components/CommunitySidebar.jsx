@@ -16,7 +16,7 @@ const CommunitySidebar = () => {
   ];
 
   return (
-    <div className="w-64 bg-slate-900 border-r border-slate-800 min-h-screen sticky top-16 z-40">
+    <div className="w-64 bg-slate-900 border-r border-slate-800 min-h-screen">
       <div className="p-4">
         {/* Community Header */}
         <div className="flex items-center space-x-2 mb-6">
@@ -35,7 +35,7 @@ const CommunitySidebar = () => {
               onClick={() => setActiveItem(item.id)}
               className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-colors group ${
                 activeItem === item.id || item.active
-                  ? 'bg-blue-600/20 text-blue-400 border-l-4 border-blue-500'
+                  ? 'bg-blue-600/20 text-blue-400'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800'
               }`}
             >
