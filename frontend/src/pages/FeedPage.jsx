@@ -4,11 +4,26 @@ import { Button } from '../components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import Layout from '../components/Layout';
 import FeedPost from '../components/FeedPost';
+import LoginModal from '../components/LoginModal';
+import { useAuth } from '../context/AuthContext';
 import { mockFeedPosts } from '../mockData';
 
 const FeedPage = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [sortBy, setSortBy] = useState('recent');
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  
+  const { isAuthenticated } = useAuth();
+
+  const handleCreatePost = () => {
+    if (!isAuthenticated) {
+      setIsLoginModalOpen(true);
+    } else {
+      // Abrir modal de crear post o navegar a página de creación
+      console.log('Crear post - usuario autenticado');
+      // Aquí iría la lógica para crear post
+    }
+  };
 
   return (
     <Layout>
@@ -25,6 +40,7 @@ const FeedPage = () => {
               </p>
             </div>
             <Button 
+              onClick={handleCreatePost}
               className="text-white"
               style={{
                 backgroundColor: '#1B1D23',
@@ -95,6 +111,12 @@ const FeedPage = () => {
           </Button>
         </div>
       </div>
+
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+      />
     </Layout>
   );
 };

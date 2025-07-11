@@ -3,28 +3,45 @@ import { X, Mail, Eye, EyeOff, Wallet } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { useAuth } from '../context/AuthContext';
 
 const LoginModal = ({ isOpen, onClose }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
-  const [walletConnected, setWalletConnected] = useState(false);
-  const [walletAddress, setWalletAddress] = useState('');
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: ''
   });
 
+  const { login, connectWallet } = useAuth();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login/register logic here
+    // Handle email login/register logic here
+    const userData = {
+      type: 'email',
+      email: formData.email,
+      name: formData.email.split('@')[0],
+      displayName: formData.email.split('@')[0]
+    };
+    
+    login(userData);
     console.log('Form submitted:', formData);
     onClose();
   };
 
   const handleGoogleLogin = () => {
     // Handle Google login
+    const userData = {
+      type: 'google',
+      email: 'user@gmail.com',
+      name: 'Google User',
+      displayName: 'Google User'
+    };
+    
+    login(userData);
     console.log('Google login');
     onClose();
   };
@@ -38,25 +55,16 @@ const LoginModal = ({ isOpen, onClose }) => {
     setIsConnecting(true);
 
     try {
-      // Request account access
-      const accounts = await window.ethereum.request({
-        method: 'eth_requestAccounts',
-      });
-
-      if (accounts.length > 0) {
-        const address = accounts[0];
-        setWalletAddress(address);
-        setWalletConnected(true);
-        console.log('Wallet connected:', address);
-        
-        // Close modal after successful connection
-        setTimeout(() => {
-          onClose();
-        }, 1500);
-      }
+      const address = await connectWallet();
+      console.log('Wallet connected:', address);
+      
+      // Close modal after successful connection
+      setTimeout(() => {
+        onClose();
+      }, 1000);
     } catch (error) {
       console.error('Error connecting wallet:', error);
-      alert('Error al conectar la wallet');
+      alert('Error al conectar la wallet: ' + error.message);
     } finally {
       setIsConnecting(false);
     }
@@ -105,14 +113,12 @@ const LoginModal = ({ isOpen, onClose }) => {
               disabled={isConnecting}
               className="w-full border-zinc-700 text-white hover:bg-zinc-800"
               style={{
-                backgroundColor: walletConnected ? '#059669' : '#1B1D23',
-                backgroundImage: walletConnected ? 'none' : 'linear-gradient(90deg, #4F5961, #1B1D23)',
+                backgroundColor: '#1B1D23',
+                backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
               }}
             >
               <Wallet className="w-5 h-5 mr-2" />
-              {isConnecting ? 'Conectando...' : 
-               walletConnected ? `Conectado: ${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` :
-               'Conectar Wallet'}
+              {isConnecting ? 'Conectando...' : 'Conectar Wallet'}
             </Button>
           </div>
 
