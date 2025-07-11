@@ -4,6 +4,18 @@
   background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
 }
 
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full width layout */
+.App {
+  width: 100%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
