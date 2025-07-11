@@ -93,10 +93,10 @@ const Layout = ({ children }) => {
       {/* Left Sidebar - Community Navigation */}
       <div className={`${
         isMobile 
-          ? `fixed left-0 top-16 h-full z-50 transform transition-transform duration-300 ${
+          ? `fixed left-0 top-24 h-full z-50 transform transition-transform duration-300 ${
               isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
             } w-64`
-          : `${sidebarWidth} fixed left-0 top-16 h-full z-30 transition-all duration-300`
+          : `${sidebarWidth} fixed left-0 top-24 h-full z-30 transition-all duration-300`
       } bg-zinc-900 border-r border-zinc-800`}>
         <div className="p-4">
           {/* Community Header */}
