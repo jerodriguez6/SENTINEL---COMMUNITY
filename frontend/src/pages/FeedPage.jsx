@@ -24,7 +24,7 @@ const FeedPage = () => {
                 Análisis de mercado, gráficos y noticias de la comunidad crypto
               </p>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white">
               <Plus className="w-4 h-4 mr-2" />
               Crear Post
             </Button>
@@ -79,7 +79,7 @@ const FeedPage = () => {
         <div className="text-center mt-12">
           <Button 
             size="lg" 
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-all hover:scale-105"
+            className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-3 rounded-lg font-medium transition-all hover:scale-105"
           >
             Cargar Más Posts
           </Button>

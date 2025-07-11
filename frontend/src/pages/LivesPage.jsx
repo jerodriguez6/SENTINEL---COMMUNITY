@@ -77,14 +77,14 @@ const LivesPage = () => {
           <div className="absolute inset-0 bg-black/40 rounded-t-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
             <Button
               onClick={handlePlayClick}
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-16 h-16 flex items-center justify-center"
+              className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white rounded-full w-16 h-16 flex items-center justify-center"
             >
               <Play className="w-8 h-8 ml-1" />
             </Button>
           </div>
           {live.status === 'upcoming' && (
             <div className="absolute top-3 left-3">
-              <Badge className="bg-blue-600 text-white">
+              <Badge className="bg-gradient-to-r from-orange-500 to-red-600 text-white">
                 Próximo
               </Badge>
             </div>
@@ -122,7 +122,7 @@ const LivesPage = () => {
           
           <Button
             onClick={handlePlayClick}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white"
           >
             <Play className="w-4 h-4 mr-2" />
             {live.status === 'upcoming' ? 'Set reminder' : 'Play recording'}
@@ -186,7 +186,7 @@ const LivesPage = () => {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold text-white">Pasados</h2>
-            <Button variant="ghost" className="text-blue-400 hover:text-blue-300">
+            <Button variant="ghost" className="text-orange-400 hover:text-orange-300">
               Ver todos
             </Button>
           </div>
