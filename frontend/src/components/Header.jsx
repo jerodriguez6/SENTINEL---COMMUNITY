@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Search, User, Menu, X, TrendingUp, BarChart3, Zap, ChevronDown, Wallet } from 'lucide-react';
+import { Search, User, Menu, X, ChevronDown, Wallet, Shield, TrendingUp } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import LoginModal from './LoginModal';
 
@@ -15,11 +15,10 @@ const Header = () => {
   const { isAuthenticated, user, logout } = useAuth();
 
   const navigationItems = [
-    { name: 'Cryptocurrencies', href: '#', icon: TrendingUp },
-    { name: 'DexScan', href: '#', icon: BarChart3 },
+    { name: 'Tech MarketCap', href: '#', icon: TrendingUp },
+    { name: 'Auditorías', href: '#', icon: Shield },
     { name: 'Exchanges', href: '#' },
     { name: 'Community', href: '#', active: true },
-    { name: 'Products', href: '#' },
   ];
 
   const handleLoginClick = () => {
@@ -38,11 +37,14 @@ const Header = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="flex items-center space-x-2 text-white hover:text-blue-400 transition-colors">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 via-purple-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-white" />
+              <Link to="/" className="flex items-center space-x-3 text-white hover:text-blue-400 transition-colors">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-600 to-cyan-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">S</span>
                 </div>
-                <span className="text-xl font-bold hidden sm:block">SENTINEL AI</span>
+                <div className="hidden sm:block">
+                  <div className="text-xl font-bold">SENTINEL IA</div>
+                  <div className="text-xs text-slate-400 -mt-1">Tech MarketCap</div>
+                </div>
               </Link>
             </div>
 
@@ -55,7 +57,7 @@ const Header = () => {
                   className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
                     item.active 
                       ? 'text-blue-400 bg-blue-900/20' 
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                      : 'text-slate-300 hover:text-white hover:bg-zinc-800'
                   }`}
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
@@ -73,39 +75,15 @@ const Header = () => {
                 </div>
                 <Input
                   type="text"
-                  placeholder="Search..."
+                  placeholder="Buscar proyectos..."
                   className="w-64 pl-10 bg-zinc-800 border-zinc-700 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
 
-              {/* User Actions */}
+              {/* User Authentication */}
               <div className="hidden md:flex items-center space-x-3">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="text-slate-300 hover:text-white"
-                  style={{
-                    backgroundColor: '#1B1D23',
-                    backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-                  }}
-                >
-                  Portfolio
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="text-slate-300 hover:text-white"
-                  style={{
-                    backgroundColor: '#1B1D23',
-                    backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-                  }}
-                >
-                  Watchlist
-                </Button>
-                
-                {/* User Authentication */}
                 {isAuthenticated ? (
                   <div className="relative">
                     <Button 
@@ -146,7 +124,14 @@ const Header = () => {
                           className="block px-4 py-2 text-sm text-slate-300 hover:bg-zinc-700 hover:text-white"
                           onClick={() => setShowUserMenu(false)}
                         >
-                          Configuración
+                          Dashboard
+                        </Link>
+                        <Link 
+                          to="/auditorias" 
+                          className="block px-4 py-2 text-sm text-slate-300 hover:bg-zinc-700 hover:text-white"
+                          onClick={() => setShowUserMenu(false)}
+                        >
+                          Mis Auditorías
                         </Link>
                         <div className="border-t border-zinc-700 my-2"></div>
                         <button 
@@ -168,7 +153,7 @@ const Header = () => {
                       backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
                     }}
                   >
-                    Log In
+                    Conectar
                   </Button>
                 )}
               </div>
@@ -176,7 +161,7 @@ const Header = () => {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800"
+                className="md:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-zinc-800"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -185,7 +170,7 @@ const Header = () => {
 
           {/* Mobile menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-slate-800">
+            <div className="md:hidden py-4 border-t border-zinc-800">
               <div className="flex flex-col space-y-2">
                 {navigationItems.map((item) => (
                   <Link
@@ -194,39 +179,17 @@ const Header = () => {
                     className={`flex items-center space-x-2 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
                       item.active 
                         ? 'text-blue-400 bg-blue-900/20' 
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                        : 'text-slate-300 hover:text-white hover:bg-zinc-800'
                     }`}
                   >
                     {item.icon && <item.icon className="w-4 h-4" />}
                     <span>{item.name}</span>
                   </Link>
                 ))}
-                <div className="pt-2 mt-2 border-t border-slate-800">
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="w-full justify-start text-slate-300 hover:text-white"
-                    style={{
-                      backgroundColor: '#1B1D23',
-                      backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-                    }}
-                  >
-                    Portfolio
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="w-full justify-start text-slate-300 hover:text-white"
-                    style={{
-                      backgroundColor: '#1B1D23',
-                      backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-                    }}
-                  >
-                    Watchlist
-                  </Button>
-                  
+                
+                <div className="pt-2 mt-2 border-t border-zinc-800">
                   {isAuthenticated ? (
-                    <div className="space-y-2 mt-2">
+                    <div className="space-y-2">
                       <div className="px-3 py-2 text-white font-medium border border-zinc-700 rounded">
                         {user?.type === 'wallet' ? (
                           <div className="flex items-center space-x-2">
@@ -253,13 +216,13 @@ const Header = () => {
                     <Button 
                       size="sm" 
                       onClick={handleLoginClick}
-                      className="w-full mt-2 text-white"
+                      className="w-full text-white"
                       style={{
                         backgroundColor: '#1B1D23',
                         backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
                       }}
                     >
-                      Log In
+                      Conectar
                     </Button>
                   )}
                 </div>

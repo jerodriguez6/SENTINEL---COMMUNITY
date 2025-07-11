@@ -220,3 +220,73 @@
     font-size: 1.25rem;
   }
 }
+
+/* Crypto Ticker Styles */
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticker-content {
+  display: flex;
+  animation: scroll-left 60s linear infinite;
+  width: fit-content;
+}
+
+.ticker-item {
+  padding: 8px 24px;
+  border-right: 1px solid #3f3f46;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.ticker-item:hover {
+  background-color: rgba(63, 63, 70, 0.5);
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-wrapper:hover .ticker-content {
+  animation-play-state: paused;
+}
+
+/* Header adjustments */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  .header-logo-text {
+    display: none;
+  }
+  
+  .ticker-item {
+    padding: 6px 16px;
+    font-size: 0.875rem;
+  }
+}

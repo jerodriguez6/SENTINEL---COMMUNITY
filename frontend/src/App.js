@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import CryptoTicker from "./components/CryptoTicker";
 import FeedPage from "./pages/FeedPage";
 import LaunchpadPage from "./pages/LaunchpadPage";
 import CommunityPage from "./pages/CommunityPage";
@@ -14,6 +15,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <div className="App">
+          <CryptoTicker />
           <Header />
           <Routes>
             <Route path="/" element={<FeedPage />} />
