@@ -8,7 +8,7 @@ const FeedPost = ({ post }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   return (
-    <Card className="bg-slate-800 border-slate-700 hover:border-slate-600 transition-all duration-300 group">
+    <Card className="bg-zinc-800 border-zinc-700 hover:border-zinc-600 transition-all duration-300 group">
       <CardContent className="p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
@@ -31,13 +31,13 @@ const FeedPost = ({ post }) => {
               <div className="flex items-center space-x-2 text-sm text-slate-400">
                 <span>{post.timestamp}</span>
                 <span>•</span>
-                <Badge variant="outline" className="text-xs border-slate-600 text-slate-400">
+                <Badge variant="outline" className="text-xs border-zinc-600 text-slate-400">
                   {post.type}
                 </Badge>
               </div>
             </div>
           </div>
-          <button className="p-2 hover:bg-slate-700 rounded-full transition-colors">
+          <button className="p-2 hover:bg-zinc-700 rounded-full transition-colors">
             <MoreHorizontal className="w-4 h-4 text-slate-400" />
           </button>
         </div>
@@ -73,7 +73,7 @@ const FeedPost = ({ post }) => {
               <Badge 
                 key={index} 
                 variant="outline" 
-                className="text-xs border-slate-600 text-slate-300 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
+                className="text-xs border-zinc-600 text-slate-300 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
               >
                 #{tag}
               </Badge>
@@ -83,7 +83,7 @@ const FeedPost = ({ post }) => {
 
         {/* Metrics */}
         {post.metrics && (
-          <div className="bg-slate-700/50 rounded-lg p-3 mb-4">
+          <div className="bg-zinc-700/50 rounded-lg p-3 mb-4">
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <span className="text-slate-400">Price: </span>
@@ -108,7 +108,7 @@ const FeedPost = ({ post }) => {
         )}
 
         {/* Actions */}
-        <div className="flex items-center justify-between border-t border-slate-700 pt-4">
+        <div className="flex items-center justify-between border-t border-zinc-700 pt-4">
           <div className="flex items-center space-x-6">
             <button 
               onClick={() => setIsLiked(!isLiked)}
@@ -133,7 +133,7 @@ const FeedPost = ({ post }) => {
           
           <button 
             onClick={() => setIsBookmarked(!isBookmarked)}
-            className={`p-2 hover:bg-slate-700 rounded-full transition-colors ${
+            className={`p-2 hover:bg-zinc-700 rounded-full transition-colors ${
               isBookmarked ? 'text-yellow-400' : 'text-slate-400'
             }`}
           >
