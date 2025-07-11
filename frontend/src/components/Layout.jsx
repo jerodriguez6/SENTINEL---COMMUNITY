@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Home, Rocket, Radio, FileText, Bell, User, MoreHorizontal, Users, TrendingUp, Hash, UserPlus, Verified, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
+import { useAuth } from '../context/AuthContext';
 import LoginModal from './LoginModal';
 
 const Layout = ({ children }) => {
@@ -11,6 +12,8 @@ const Layout = ({ children }) => {
   const [isSidebarMinimized, setIsSidebarMinimized] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  
+  const { isAuthenticated } = useAuth();
   
   const menuItems = [
     { id: 'feed', name: 'Feed', icon: Home, path: '/' },
@@ -26,7 +29,9 @@ const Layout = ({ children }) => {
 
   const handleLoginRequired = (e) => {
     e.preventDefault();
-    setIsLoginModalOpen(true);
+    if (!isAuthenticated) {
+      setIsLoginModalOpen(true);
+    }
   };
 
   // Check if mobile
