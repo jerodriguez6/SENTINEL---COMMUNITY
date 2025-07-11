@@ -80,14 +80,14 @@ export const mockArticles = [
 ];
 
 export const mockTrendingTopics = [
-  { name: "Bitcoin", posts: "1.2K" },
-  { name: "Ethereum", posts: "987" },
-  { name: "DeFi", posts: "756" },
-  { name: "NFTs", posts: "543" },
-  { name: "Altcoins", posts: "432" },
-  { name: "Trading", posts: "389" },
-  { name: "Regulation", posts: "267" },
-  { name: "Web3", posts: "234" }
+  { name: "YZI", posts: "1.2K" },
+  { name: "Apple", posts: "987" },
+  { name: "CMC Launch: Aster#", posts: "756" },
+  { name: "ANTGroup", posts: "543" },
+  { name: "CMC Quest: Earn Rewards#", posts: "432" },
+  { name: "Bitcoin", posts: "389" },
+  { name: "Ethereum", posts: "267" },
+  { name: "DeFi", posts: "234" }
 ];
 
 export const mockRecommendedAccounts = [
