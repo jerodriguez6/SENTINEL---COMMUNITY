@@ -177,7 +177,7 @@ const Layout = ({ children }) => {
 
       {/* Right Sidebar - Trending & Recommendations - Hidden on Mobile */}
       {!isMobile && (
-        <div className="w-80 bg-zinc-900 border-l border-zinc-800 fixed right-0 top-16 h-full overflow-y-auto z-30">
+        <div className="w-80 bg-zinc-900 border-l border-zinc-800 fixed right-0 top-24 h-full overflow-y-auto z-30">
           <div className="p-6 space-y-6">
             {/* Trending Topics */}
             <Card className="bg-zinc-800 border-zinc-700">
