@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Rocket, Radio, FileText, Bell, User, MoreHorizontal, Users, TrendingUp, Hash, UserPlus, Verified } from 'lucide-react';
+import { Home, Rocket, Radio, FileText, Bell, User, MoreHorizontal, Users, TrendingUp, Hash, UserPlus, Verified, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
+import LoginModal from './LoginModal';
 
 const Layout = ({ children }) => {
   const location = useLocation();
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSidebarMinimized, setIsSidebarMinimized] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   const menuItems = [
     { id: 'feed', name: 'Feed', icon: Home, path: '/' },
@@ -18,6 +23,23 @@ const Layout = ({ children }) => {
   ];
 
   const isActive = (path) => location.pathname === path;
+
+  const handleMyPageClick = (e) => {
+    e.preventDefault();
+    setIsLoginModalOpen(true);
+  };
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const trendingTopics = [
     { name: 'YZI', posts: '1.2K' },
@@ -50,17 +72,61 @@ const Layout = ({ children }) => {
     }
   ];
 
+  const sidebarWidth = isSidebarMinimized ? 'w-16' : 'w-64';
+  const mainMargin = isSidebarMinimized ? 'ml-16' : 'ml-64';
+
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Mobile Overlay */}
+      {isMobile && isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Left Sidebar - Community Navigation */}
-      <div className="w-64 bg-slate-900 border-r border-slate-800 fixed left-0 top-16 h-full z-30">
+      <div className={`${
+        isMobile 
+          ? `fixed left-0 top-16 h-full z-50 transform transition-transform duration-300 ${
+              isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+            } w-64`
+          : `${sidebarWidth} fixed left-0 top-16 h-full z-30 transition-all duration-300`
+      } bg-slate-900 border-r border-slate-800`}>
         <div className="p-4">
           {/* Community Header */}
-          <div className="flex items-center space-x-2 mb-6">
-            <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-              <Users className="w-4 h-4 text-white" />
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center space-x-2">
+              <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                <Users className="w-4 h-4 text-white" />
+              </div>
+              {(!isSidebarMinimized || isMobile) && (
+                <h2 className="text-white font-semibold text-lg">COMMUNITY</h2>
+              )}
             </div>
-            <h2 className="text-white font-semibold text-lg">COMMUNITY</h2>
+            
+            {/* Mobile close button */}
+            {isMobile && (
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 hover:bg-slate-800 rounded-full transition-colors"
+              >
+                <X className="w-5 h-5 text-slate-400" />
+              </button>
+            )}
+            
+            {/* Desktop minimize button */}
+            {!isMobile && (
+              <button
+                onClick={() => setIsSidebarMinimized(!isSidebarMinimized)}
+                className="p-2 hover:bg-slate-800 rounded-full transition-colors"
+              >
+                {isSidebarMinimized ? 
+                  <ChevronRight className="w-5 h-5 text-slate-400" /> : 
+                  <ChevronLeft className="w-5 h-5 text-slate-400" />
+                }
+              </button>
+            )}
           </div>
 
           {/* Menu Items */}
@@ -69,16 +135,20 @@ const Layout = ({ children }) => {
               <Link
                 key={item.id}
                 to={item.path}
+                onClick={item.id === 'mypage' ? handleMyPageClick : undefined}
                 className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-colors group ${
                   isActive(item.path)
                     ? 'bg-blue-600/20 text-blue-400'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                }`}
+                } ${isSidebarMinimized && !isMobile ? 'justify-center' : ''}`}
+                title={isSidebarMinimized && !isMobile ? item.name : undefined}
               >
                 <item.icon className={`w-5 h-5 ${
                   isActive(item.path) ? 'text-blue-400' : 'text-slate-500 group-hover:text-white'
                 }`} />
-                <span className="font-medium">{item.name}</span>
+                {(!isSidebarMinimized || isMobile) && (
+                  <span className="font-medium">{item.name}</span>
+                )}
               </Link>
             ))}
           </nav>
@@ -86,13 +156,27 @@ const Layout = ({ children }) => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 ml-64 mr-80">
+      <div className={`flex-1 ${isMobile ? 'ml-0' : mainMargin} ${isMobile ? 'mr-0' : 'mr-0 xl:mr-80'} transition-all duration-300`}>
+        {/* Mobile menu button */}
+        {isMobile && (
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="fixed top-20 left-4 z-30 p-2 bg-slate-800 rounded-full border border-slate-700 hover:bg-slate-700 transition-colors"
+          >
+            <Users className="w-5 h-5 text-white" />
+          </button>
+        )}
+        
         {children}
       </div>
 
       {/* Right Sidebar - Trending & Recommendations */}
-      <div className="w-80 bg-slate-900 border-l border-slate-800 fixed right-0 top-16 h-full overflow-y-auto z-30">
-        <div className="p-6 space-y-6">
+      <div className={`${
+        isMobile 
+          ? 'fixed bottom-0 left-0 right-0 z-40 bg-slate-900 border-t border-slate-800 max-h-96 overflow-y-auto'
+          : 'w-80 bg-slate-900 border-l border-slate-800 fixed right-0 top-16 h-full overflow-y-auto z-30 hidden xl:block'
+      }`}>
+        <div className={`p-6 space-y-6 ${isMobile ? 'pb-20' : ''}`}>
           {/* Trending Topics */}
           <Card className="bg-slate-800 border-slate-700">
             <CardHeader>
@@ -187,6 +271,12 @@ const Layout = ({ children }) => {
           </Card>
         </div>
       </div>
+
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+      />
     </div>
   );
 };
