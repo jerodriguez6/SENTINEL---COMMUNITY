@@ -6,15 +6,15 @@ import CommunityPage from "./pages/CommunityPage";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
         <Header />
         <Routes>
           <Route path="/" element={<CommunityPage />} />
           <Route path="/community" element={<CommunityPage />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
