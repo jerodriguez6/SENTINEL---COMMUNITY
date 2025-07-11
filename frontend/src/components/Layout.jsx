@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
 
   const isActive = (path) => location.pathname === path;
 
-  const handleMyPageClick = (e) => {
+  const handleLoginRequired = (e) => {
     e.preventDefault();
     setIsLoginModalOpen(true);
   };
@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
   // Check if mobile
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1280); // xl breakpoint
     };
     
     checkMobile();
@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
           {/* Community Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+              <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
                 <Users className="w-4 h-4 text-white" />
               </div>
               {(!isSidebarMinimized || isMobile) && (
@@ -135,16 +135,16 @@ const Layout = ({ children }) => {
               <Link
                 key={item.id}
                 to={item.path}
-                onClick={item.id === 'mypage' ? handleMyPageClick : undefined}
+                onClick={(item.id === 'mypage' || item.id === 'notifications') ? handleLoginRequired : undefined}
                 className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-colors group ${
                   isActive(item.path)
-                    ? 'bg-blue-600/20 text-blue-400'
+                    ? 'bg-gradient-to-r from-orange-500/20 to-red-600/20 text-orange-400 border-l-4 border-orange-500'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 } ${isSidebarMinimized && !isMobile ? 'justify-center' : ''}`}
                 title={isSidebarMinimized && !isMobile ? item.name : undefined}
               >
                 <item.icon className={`w-5 h-5 ${
-                  isActive(item.path) ? 'text-blue-400' : 'text-slate-500 group-hover:text-white'
+                  isActive(item.path) ? 'text-orange-400' : 'text-slate-500 group-hover:text-white'
                 }`} />
                 {(!isSidebarMinimized || isMobile) && (
                   <span className="font-medium">{item.name}</span>
@@ -170,107 +170,105 @@ const Layout = ({ children }) => {
         {children}
       </div>
 
-      {/* Right Sidebar - Trending & Recommendations */}
-      <div className={`${
-        isMobile 
-          ? 'fixed bottom-0 left-0 right-0 z-40 bg-slate-900 border-t border-slate-800 max-h-96 overflow-y-auto'
-          : 'w-80 bg-slate-900 border-l border-slate-800 fixed right-0 top-16 h-full overflow-y-auto z-30 hidden xl:block'
-      }`}>
-        <div className={`p-6 space-y-6 ${isMobile ? 'pb-20' : ''}`}>
-          {/* Trending Topics */}
-          <Card className="bg-slate-800 border-slate-700">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2 text-white">
-                <TrendingUp className="w-5 h-5 text-orange-400" />
-                <span>Trending Topics</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {trendingTopics.map((topic, index) => (
-                <div 
-                  key={index} 
-                  className="flex items-center justify-between p-3 rounded-lg bg-slate-700/50 hover:bg-slate-700 transition-colors cursor-pointer group"
-                >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-slate-500 text-sm font-medium w-4">
-                      {index + 1}
-                    </span>
-                    <div className="flex items-center space-x-2">
-                      <Hash className="w-4 h-4 text-slate-400 group-hover:text-blue-400 transition-colors" />
-                      <span className="text-slate-300 group-hover:text-white transition-colors">
-                        {topic.name}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="text-slate-400 text-sm">
-                    {topic.posts}
-                  </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-
-          {/* Recommended Accounts */}
-          <Card className="bg-slate-800 border-slate-700">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2 text-white">
-                <Users className="w-5 h-5 text-blue-400" />
-                <span>Recommended Accounts</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {recommendedAccounts.map((account, index) => (
-                <div key={index} className="border-b border-slate-700 pb-4 last:border-0">
-                  {/* Account Header */}
-                  <div className="flex items-center justify-between mb-3">
+      {/* Right Sidebar - Trending & Recommendations - Hidden on Mobile */}
+      {!isMobile && (
+        <div className="w-80 bg-slate-900 border-l border-slate-800 fixed right-0 top-16 h-full overflow-y-auto z-30">
+          <div className="p-6 space-y-6">
+            {/* Trending Topics */}
+            <Card className="bg-slate-800 border-slate-700">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2 text-white">
+                  <TrendingUp className="w-5 h-5 text-orange-400" />
+                  <span>Trending Topics</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {trendingTopics.map((topic, index) => (
+                  <div 
+                    key={index} 
+                    className="flex items-center justify-between p-3 rounded-lg bg-slate-700/50 hover:bg-slate-700 transition-colors cursor-pointer group"
+                  >
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-medium">
-                          {account.name.charAt(0).toUpperCase()}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="flex items-center space-x-1">
-                          <span className="text-white font-medium text-sm">
-                            {account.name}
-                          </span>
-                          {account.verified && (
-                            <Verified className="w-4 h-4 text-blue-400" />
-                          )}
-                        </div>
-                        <span className="text-slate-400 text-xs">
-                          @{account.handle}
+                      <span className="text-slate-500 text-sm font-medium w-4">
+                        {index + 1}
+                      </span>
+                      <div className="flex items-center space-x-2">
+                        <Hash className="w-4 h-4 text-slate-400 group-hover:text-orange-400 transition-colors" />
+                        <span className="text-slate-300 group-hover:text-white transition-colors">
+                          {topic.name}
                         </span>
                       </div>
                     </div>
-                    <Button 
-                      size="sm" 
-                      className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1"
-                    >
-                      <UserPlus className="w-3 h-3 mr-1" />
-                      Follow
-                    </Button>
+                    <div className="text-slate-400 text-sm">
+                      {topic.posts}
+                    </div>
                   </div>
+                ))}
+              </CardContent>
+            </Card>
 
-                  {/* Recent Posts */}
-                  <div className="space-y-2">
-                    {account.recentPosts.map((post, postIndex) => (
-                      <div key={postIndex} className="bg-slate-700/30 rounded-lg p-2">
-                        <p className="text-slate-300 text-xs mb-1">
-                          {post.text}
-                        </p>
-                        <span className="text-slate-500 text-xs">
-                          {post.time}
-                        </span>
+            {/* Recommended Accounts */}
+            <Card className="bg-slate-800 border-slate-700">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2 text-white">
+                  <Users className="w-5 h-5 text-orange-400" />
+                  <span>Recommended Accounts</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {recommendedAccounts.map((account, index) => (
+                  <div key={index} className="border-b border-slate-700 pb-4 last:border-0">
+                    {/* Account Header */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+                          <span className="text-white font-medium">
+                            {account.name.charAt(0).toUpperCase()}
+                          </span>
+                        </div>
+                        <div>
+                          <div className="flex items-center space-x-1">
+                            <span className="text-white font-medium text-sm">
+                              {account.name}
+                            </span>
+                            {account.verified && (
+                              <Verified className="w-4 h-4 text-orange-400" />
+                            )}
+                          </div>
+                          <span className="text-slate-400 text-xs">
+                            @{account.handle}
+                          </span>
+                        </div>
                       </div>
-                    ))}
+                      <Button 
+                        size="sm" 
+                        className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white text-xs px-3 py-1"
+                      >
+                        <UserPlus className="w-3 h-3 mr-1" />
+                        Follow
+                      </Button>
+                    </div>
+
+                    {/* Recent Posts */}
+                    <div className="space-y-2">
+                      {account.recentPosts.map((post, postIndex) => (
+                        <div key={postIndex} className="bg-slate-700/30 rounded-lg p-2">
+                          <p className="text-slate-300 text-xs mb-1">
+                            {post.text}
+                          </p>
+                          <span className="text-slate-500 text-xs">
+                            {post.time}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Login Modal */}
       <LoginModal 

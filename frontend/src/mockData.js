@@ -1,19 +1,66 @@
 export const mockArticles = [
   {
     id: 1,
+    title: "🚀 Sentinel AI: Nace la Autoridad #1 en Reputación Tecnológica Web3 Y Auditoría Automatizada 📊🛡️",
+    description: "En SHARK Technology no solo construimos productos. Impulsamos una nueva generación de plataformas que integran Inteligencia Artificial, Blockchain y Automatización para redefinir cómo interactuamos con la tecnología.",
+    image: "https://images.unsplash.com/photo-1639815188508-13f7370f664a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxjcnlwdG9jdXJyZW5jeXxlbnwwfHx8Ymx1ZXwxNzUyMDc3MDA1fDA&ixlib=rb-4.1.0&q=85",
+    category: "Announcement",
+    author: "SENTINEL AI",
+    views: "5.2K",
+    likes: "348",
+    comments: "67",
+    tags: ["Sentinel AI", "Auditoría", "Web3", "IA", "Blockchain"],
+    timestamp: "Hace 2 horas",
+    fullContent: `
+      <p>En SHARK Technology no solo construimos productos. <strong>Impulsamos una nueva generación de plataformas que integran Inteligencia Artificial, Blockchain y Automatización</strong> para redefinir cómo interactuamos con la tecnología. Hoy queremos presentarte con orgullo una de nuestras creaciones más visionarias: <strong>Sentinel AI</strong>.</p>
+      
+      <p>Más que una simple herramienta de auditoría, <strong>Sentinel AI es una autoridad tecnológica</strong>, diseñada para validar, auditar y clasificar proyectos Web3 según su madurez técnica, confiabilidad e innovación.</p>
+      
+      <h3>🛡️ Sentinel AI</h3>
+      <p><strong>Sentinel AI es la primera plataforma que fusiona:</strong></p>
+      <ul>
+        <li>🔎 <strong>Auditoría automatizada de smart contracts</strong></li>
+        <li>🧠 <strong>Inteligencia Artificial especializada en ciberseguridad</strong></li>
+        <li>📊 <strong>Un Tech MarketCap de reputación tecnológica</strong></li>
+      </ul>
+      
+      <p>Así como CoinMarketCap cataloga proyectos por su capitalización, <strong>Sentinel AI creará el estándar global de confianza y reputación para proyectos tecnológicos en Web3</strong>.</p>
+      
+      <h3>🌐 ¿Qué es Sentinel AI?</h3>
+      <p><strong>Sentinel AI</strong> es mucho más que una plataforma de auditoría. Es el nuevo <strong>Tech MarketCap</strong>, un sistema que evalúa la <strong>reputación tecnológica</strong> de los proyectos Web3 con precisión, transparencia e inteligencia artificial.</p>
+      
+      <p>🔍 En un ecosistema donde la confianza lo es todo, contar con una auditoría automatizada y una puntuación visible puede marcar la diferencia entre captar inversión o pasar desapercibido.</p>
+      
+      <p>💡 <strong>Auditar con Sentinel AI eleva la credibilidad de tu tecnología, potencia tus alianzas y te posiciona como un proyecto serio ante comunidades e inversionistas.</strong></p>
+      
+      <h3>🔥 Pioneros en el Tech MarketCap de Reputación</h3>
+      <p>En lugar de clasificar por hype o capitalización, <strong>clasificamos por tecnología real, cumplimiento de buenas prácticas y seguridad del código.</strong></p>
+      
+      <p>Un nuevo ranking se está formando, y <strong>Sentinel AI será el núcleo de esta revolución</strong>. Pronto abriremos la plataforma de forma pública para que cualquier proyecto pueda auditarse y demostrar su calidad tecnológica.</p>
+      
+      <p><strong>Ser parte de Sentinel AI será una insignia de honor y un filtro de confianza.</strong></p>
+      
+      <h3>📢 El lanzamiento público se acerca…</h3>
+      <p>🧠 Construido por <a href="https://www.sentinelaudit.com/" target="_blank">SHARK Technology</a></p>
+      <p>🌐 Productos como <a href="https://www.etnialaunchpad.com/" target="_blank">ETNIA Launchpad</a> también están alineados con Sentinel AI.</p>
+      <p>💬 Síguenos para conocer más sobre el ecosistema que estamos construyendo.</p>
+    `
+  },
+  {
+    id: 2,
     title: "ETH Breaks Falling Wedge and Sets Path Toward $3,800 Price Level",
     description: "Ethereum broke above a strong resistance and buyers are now aiming for the next zone near $3,800 soon. Support at $3,200 is crucial for this bullish scenario to continue playing out.",
-    image: "https://images.unsplash.com/photo-1639815188508-13f7370f664a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxjcnlwdG9jdXJyZW5jeXxlbnwwfHx8Ymx1ZXwxNzUyMDc3MDA1fDA&ixlib=rb-4.1.0&q=85",
+    image: "https://images.pexels.com/photos/14911400/pexels-photo-14911400.jpeg",
     category: "Analysis",
     author: "Crypto News Land",
     views: "1.2K",
     likes: "48",
     comments: "12",
     tags: ["ETH", "Technical Analysis", "Price Prediction"],
-    timestamp: "2 hours ago"
+    timestamp: "Hace 4 horas"
   },
   {
-    id: 2,
+    id: 3,
     title: "The US Treasury Paves Way for Easier Crypto Transactions",
     description: "You can also read this news on COINTURK NEWS: The US Treasury Paves Way for Easier Crypto Transactions. The financial shifts or expert insights. Hack compromises $42M in crypto assets.",
     image: "https://images.unsplash.com/photo-1644143379190-08a5f055de1d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxibG9ja2NoYWlufGVufDB8fHxibHVlfDE3NTIxMzY2NzJ8MA&ixlib=rb-4.1.0&q=85",
@@ -23,10 +70,10 @@ export const mockArticles = [
     likes: "167",
     comments: "23",
     tags: ["US Treasury", "Regulations", "Policy"],
-    timestamp: "4 hours ago"
+    timestamp: "Hace 6 horas"
   },
   {
-    id: 3,
+    id: 4,
     title: "GMX Exploit Leads to $42M Crypto Theft",
     description: "Key Points: Main event, leadership changes, market impact, financial shifts, or expert insights. Hack compromises $42M in crypto assets through sophisticated attack vector.",
     image: "https://images.pexels.com/photos/9169180/pexels-photo-9169180.jpeg",
@@ -36,10 +83,10 @@ export const mockArticles = [
     likes: "89",
     comments: "56",
     tags: ["GMX", "Hack", "Security", "DeFi"],
-    timestamp: "6 hours ago"
+    timestamp: "Hace 8 horas"
   },
   {
-    id: 4,
+    id: 5,
     title: "Jonathan Gould Confirmed as Comptroller of Currency by Senate",
     description: "The Senate has confirmed Jonathan Gould as the new Comptroller of Currency, marking a significant appointment for cryptocurrency regulation and banking oversight.",
     image: "https://images.pexels.com/photos/14911400/pexels-photo-14911400.jpeg",
@@ -49,10 +96,10 @@ export const mockArticles = [
     likes: "124",
     comments: "31",
     tags: ["Regulation", "Government", "Banking"],
-    timestamp: "8 hours ago"
+    timestamp: "Hace 10 horas"
   },
   {
-    id: 5,
+    id: 6,
     title: "AguilaTrades Achieves $12.9 Million Profit with Bitcoin Long",
     description: "Popular crypto trader AguilaTrades showcases exceptional trading performance with a massive Bitcoin long position, demonstrating advanced market analysis skills.",
     image: "https://images.pexels.com/photos/7788009/pexels-photo-7788009.jpeg",
@@ -62,20 +109,7 @@ export const mockArticles = [
     likes: "203",
     comments: "87",
     tags: ["Bitcoin", "Trading", "Profit", "Analysis"],
-    timestamp: "10 hours ago"
-  },
-  {
-    id: 6,
-    title: "DeFi TVL Surges Past $100B as Institutional Adoption Grows",
-    description: "Total Value Locked in DeFi protocols reaches new milestone as institutional investors increasingly embrace decentralized finance solutions.",
-    image: "https://images.unsplash.com/photo-1639815188508-13f7370f664a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxjcnlwdG9jdXJyZW5jeXxlbnwwfHx8Ymx1ZXwxNzUyMDc3MDA1fDA&ixlib=rb-4.1.0&q=85",
-    category: "DeFi",
-    author: "DeFi Analytics",
-    views: "6.2K",
-    likes: "312",
-    comments: "45",
-    tags: ["DeFi", "TVL", "Institutional", "Growth"],
-    timestamp: "12 hours ago"
+    timestamp: "Hace 12 horas"
   }
 ];
 
