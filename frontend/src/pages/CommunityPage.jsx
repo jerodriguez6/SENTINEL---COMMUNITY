@@ -13,12 +13,12 @@ const CommunityPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="flex">
+      <div className="flex w-full">
         {/* Left Sidebar */}
         <CommunitySidebar />
         
         {/* Main Content */}
-        <div className="flex-1 max-w-4xl mx-auto px-6 py-8">
+        <div className="flex-1 px-6 py-8">
           {/* Header Section */}
           <div className="mb-8">
             <div className="mb-6">
