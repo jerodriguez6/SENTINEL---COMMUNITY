@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
-import { Heart, MessageCircle, Share2, Bookmark, TrendingUp, MoreHorizontal } from 'lucide-react';
+import { Button } from './ui/button';
+import { Heart, MessageCircle, Share2, Bookmark, TrendingUp, MoreHorizontal, UserPlus } from 'lucide-react';
 
 const FeedPost = ({ post }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isFollowing, setIsFollowing] = useState(false);
+
+  const handleFollow = () => {
+    setIsFollowing(!isFollowing);
+    // Aquí iría la lógica para seguir/dejar de seguir al usuario
+  };
 
   return (
     <Card className="bg-zinc-800 border-zinc-700 hover:border-zinc-600 transition-all duration-300 group">
@@ -37,9 +44,26 @@ const FeedPost = ({ post }) => {
               </div>
             </div>
           </div>
-          <button className="p-2 hover:bg-zinc-700 rounded-full transition-colors">
-            <MoreHorizontal className="w-4 h-4 text-slate-400" />
-          </button>
+          
+          {/* Follow Button */}
+          <div className="flex items-center space-x-2">
+            <Button
+              size="sm"
+              onClick={handleFollow}
+              className={`text-white text-xs px-4 py-1 transition-colors ${
+                isFollowing 
+                  ? 'bg-zinc-600 hover:bg-zinc-700' 
+                  : 'bg-blue-600 hover:bg-blue-700'
+              }`}
+            >
+              <UserPlus className="w-3 h-3 mr-1" />
+              {isFollowing ? 'Following' : 'Follow'}
+            </Button>
+            
+            <button className="p-2 hover:bg-zinc-700 rounded-full transition-colors">
+              <MoreHorizontal className="w-4 h-4 text-slate-400" />
+            </button>
+          </div>
         </div>
 
         {/* Content */}

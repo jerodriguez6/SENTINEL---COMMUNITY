@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Search, User, Menu, X, TrendingUp, BarChart3, Zap } from 'lucide-react';
+import { Search, User, Menu, X, TrendingUp, BarChart3, Zap, ChevronDown, Wallet } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import LoginModal from './LoginModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  
+  const { isAuthenticated, user, logout } = useAuth();
 
   const navigationItems = [
     { name: 'Cryptocurrencies', href: '#', icon: TrendingUp },
@@ -20,6 +24,11 @@ const Header = () => {
 
   const handleLoginClick = () => {
     setIsLoginModalOpen(true);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setShowUserMenu(false);
   };
 
   return (
@@ -95,17 +104,73 @@ const Header = () => {
                 >
                   Watchlist
                 </Button>
-                <Button 
-                  size="sm" 
-                  onClick={handleLoginClick}
-                  className="text-white"
-                  style={{
-                    backgroundColor: '#1B1D23',
-                    backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-                  }}
-                >
-                  Log In
-                </Button>
+                
+                {/* User Authentication */}
+                {isAuthenticated ? (
+                  <div className="relative">
+                    <Button 
+                      size="sm" 
+                      onClick={() => setShowUserMenu(!showUserMenu)}
+                      className="text-white flex items-center space-x-2"
+                      style={{
+                        backgroundColor: '#1B1D23',
+                        backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
+                      }}
+                    >
+                      {user?.type === 'wallet' ? (
+                        <>
+                          <Wallet className="w-4 h-4" />
+                          <span>{user.displayName}</span>
+                        </>
+                      ) : (
+                        <>
+                          <User className="w-4 h-4" />
+                          <span>{user?.name || 'Usuario'}</span>
+                        </>
+                      )}
+                      <ChevronDown className="w-3 h-3" />
+                    </Button>
+                    
+                    {/* User Dropdown Menu */}
+                    {showUserMenu && (
+                      <div className="absolute right-0 mt-2 w-48 bg-zinc-800 border border-zinc-700 rounded-lg shadow-lg py-2 z-50">
+                        <Link 
+                          to="/profile" 
+                          className="block px-4 py-2 text-sm text-slate-300 hover:bg-zinc-700 hover:text-white"
+                          onClick={() => setShowUserMenu(false)}
+                        >
+                          Mi Perfil
+                        </Link>
+                        <Link 
+                          to="/settings" 
+                          className="block px-4 py-2 text-sm text-slate-300 hover:bg-zinc-700 hover:text-white"
+                          onClick={() => setShowUserMenu(false)}
+                        >
+                          Configuración
+                        </Link>
+                        <div className="border-t border-zinc-700 my-2"></div>
+                        <button 
+                          onClick={handleLogout}
+                          className="block w-full text-left px-4 py-2 text-sm text-slate-300 hover:bg-zinc-700 hover:text-white"
+                        >
+                          Cerrar Sesión
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Button 
+                    size="sm" 
+                    onClick={handleLoginClick}
+                    className="text-white"
+                    style={{
+                      backgroundColor: '#1B1D23',
+                      backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
+                    }}
+                  >
+                    Log In
+                  </Button>
+                )}
               </div>
 
               {/* Mobile menu button */}
@@ -159,17 +224,44 @@ const Header = () => {
                   >
                     Watchlist
                   </Button>
-                  <Button 
-                    size="sm" 
-                    onClick={handleLoginClick}
-                    className="w-full mt-2 text-white"
-                    style={{
-                      backgroundColor: '#1B1D23',
-                      backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-                    }}
-                  >
-                    Log In
-                  </Button>
+                  
+                  {isAuthenticated ? (
+                    <div className="space-y-2 mt-2">
+                      <div className="px-3 py-2 text-white font-medium border border-zinc-700 rounded">
+                        {user?.type === 'wallet' ? (
+                          <div className="flex items-center space-x-2">
+                            <Wallet className="w-4 h-4" />
+                            <span>{user.displayName}</span>
+                          </div>
+                        ) : (
+                          <div className="flex items-center space-x-2">
+                            <User className="w-4 h-4" />
+                            <span>{user?.name || 'Usuario'}</span>
+                          </div>
+                        )}
+                      </div>
+                      <Button 
+                        onClick={handleLogout}
+                        size="sm"
+                        variant="outline" 
+                        className="w-full border-red-600 text-red-400 hover:bg-red-600 hover:text-white"
+                      >
+                        Cerrar Sesión
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button 
+                      size="sm" 
+                      onClick={handleLoginClick}
+                      className="w-full mt-2 text-white"
+                      style={{
+                        backgroundColor: '#1B1D23',
+                        backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
+                      }}
+                    >
+                      Log In
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
