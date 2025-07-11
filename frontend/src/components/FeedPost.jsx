@@ -13,7 +13,7 @@ const FeedPost = ({ post }) => {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
               <span className="text-white font-medium">
                 {post.author.charAt(0).toUpperCase()}
               </span>
@@ -22,7 +22,7 @@ const FeedPost = ({ post }) => {
               <div className="flex items-center space-x-2">
                 <span className="text-white font-medium">{post.author}</span>
                 {post.verified && (
-                  <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs">✓</span>
                   </div>
                 )}
@@ -73,7 +73,7 @@ const FeedPost = ({ post }) => {
               <Badge 
                 key={index} 
                 variant="outline" 
-                className="text-xs border-slate-600 text-slate-300 hover:border-blue-500 hover:text-blue-400 transition-colors cursor-pointer"
+                className="text-xs border-slate-600 text-slate-300 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
               >
                 #{tag}
               </Badge>
@@ -120,7 +120,7 @@ const FeedPost = ({ post }) => {
               <span className="text-sm">{post.likes}</span>
             </button>
             
-            <button className="flex items-center space-x-2 text-slate-400 hover:text-blue-400 transition-colors">
+            <button className="flex items-center space-x-2 text-slate-400 hover:text-orange-400 transition-colors">
               <MessageCircle className="w-4 h-4" />
               <span className="text-sm">{post.comments}</span>
             </button>

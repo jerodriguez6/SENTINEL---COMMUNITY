@@ -10,7 +10,7 @@ const LaunchpadCard = ({ project }) => {
   const getStatusColor = (status) => {
     switch (status) {
       case 'Live': return 'bg-green-500';
-      case 'Upcoming': return 'bg-blue-500';
+      case 'Upcoming': return 'bg-gradient-to-r from-orange-500 to-red-600';
       case 'Ended': return 'bg-gray-500';
       default: return 'bg-yellow-500';
     }
@@ -21,7 +21,7 @@ const LaunchpadCard = ({ project }) => {
   };
 
   return (
-    <Card className="bg-slate-800 border-slate-700 hover:border-slate-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 group">
+    <Card className="bg-slate-800 border-slate-700 hover:border-slate-600 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10 group">
       <CardHeader className="p-0">
         <div className="relative">
           <img 
@@ -45,7 +45,7 @@ const LaunchpadCard = ({ project }) => {
       <CardContent className="p-6">
         {/* Project Info */}
         <div className="mb-4">
-          <h3 className="text-white font-bold text-xl mb-2 group-hover:text-blue-400 transition-colors">
+          <h3 className="text-white font-bold text-xl mb-2 group-hover:text-orange-400 transition-colors">
             {project.name}
           </h3>
           <p className="text-slate-400 text-sm mb-3 line-clamp-2">
@@ -75,7 +75,7 @@ const LaunchpadCard = ({ project }) => {
           </div>
           <div className="w-full bg-slate-700 rounded-full h-2">
             <div 
-              className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full transition-all duration-300"
               style={{ width: `${getProgressPercentage()}%` }}
             ></div>
           </div>
@@ -89,7 +89,7 @@ const LaunchpadCard = ({ project }) => {
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div className="bg-slate-700/50 rounded-lg p-3">
             <div className="flex items-center space-x-2 mb-1">
-              <Users className="w-4 h-4 text-blue-400" />
+              <Users className="w-4 h-4 text-orange-400" />
               <span className="text-slate-400 text-xs">Participants</span>
             </div>
             <span className="text-white font-medium">{project.participants}</span>
@@ -110,7 +110,7 @@ const LaunchpadCard = ({ project }) => {
             <Badge 
               key={index} 
               variant="outline" 
-              className="text-xs border-slate-600 text-slate-300 hover:border-blue-500 hover:text-blue-400 transition-colors cursor-pointer"
+              className="text-xs border-slate-600 text-slate-300 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
             >
               {tag}
             </Badge>
@@ -120,7 +120,7 @@ const LaunchpadCard = ({ project }) => {
         {/* Actions */}
         <div className="flex space-x-2">
           <Button 
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+            className="flex-1 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white"
             onClick={() => setIsInterested(!isInterested)}
           >
             <Target className="w-4 h-4 mr-2" />
