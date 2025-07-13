@@ -9,10 +9,10 @@ const LaunchpadCard = ({ project }) => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'Live': return 'bg-gradient-to-r from-aqua-blue to-aqua-light';
-      case 'Upcoming': return 'bg-gradient-to-r from-professional-blue to-aqua-blue';
+      case 'Live': return 'bg-green-500';
+      case 'Upcoming': return 'bg-orange-500';
       case 'Ended': return 'bg-gray-500';
-      default: return 'bg-aqua-blue';
+      default: return 'bg-gray-400';
     }
   };
 
