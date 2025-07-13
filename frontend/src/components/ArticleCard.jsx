@@ -9,7 +9,7 @@ const ArticleCard = ({ article }) => {
 
   return (
     <>
-      <Card className="bg-zinc-900 border-zinc-800 hover:border-zinc-700 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10 group cursor-pointer">
+      <Card className="bg-black border-aqua-blue/30 hover:border-aqua-blue/50 transition-all duration-300 hover:shadow-aqua card-hover group cursor-pointer">
         <CardContent className="p-6" onClick={() => setIsModalOpen(true)}>
           {/* Desktop Layout */}
           <div className="hidden md:flex gap-6">
