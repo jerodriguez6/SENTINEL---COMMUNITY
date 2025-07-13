@@ -56,8 +56,8 @@ const Header = () => {
                   to={item.href}
                   className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-all duration-300 rounded-md border border-transparent ${
                     item.active 
-                      ? 'text-professional-blue bg-professional-blue/10 border-professional-blue/30 shadow-subtle' 
-                      : 'text-professional-blue hover:text-professional-blue-light hover:bg-professional-blue/5 hover:border-professional-blue/20'
+                      ? 'text-aqua-blue bg-aqua-blue/10 border-aqua-blue/30 shadow-subtle' 
+                      : 'text-aqua-blue hover:text-aqua-light hover:bg-aqua-blue/5 hover:border-aqua-blue/20'
                   }`}
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
