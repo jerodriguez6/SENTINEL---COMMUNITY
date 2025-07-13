@@ -187,7 +187,7 @@ const Layout = ({ children }) => {
 
       {/* Right Sidebar - Trending & Recommendations - Hidden on Mobile */}
       {!isMobile && (
-        <div className="w-80 glass-effect border-l border-aqua-blue/30 fixed right-0 top-24 h-full overflow-y-auto z-30" style={{background: 'linear-gradient(135deg, #0f1419, #1a202c)', borderLeftColor: 'rgba(64, 224, 208, 0.3)'}}>
+        <div className="w-80 bg-black border-l border-aqua-blue/30 fixed right-0 top-24 h-full overflow-y-auto z-30" style={{borderLeftColor: 'rgba(64, 224, 208, 0.3)'}}>
           <div className="p-6 space-y-6">
             {/* Trending Topics */}
             <Card className="glass-effect border-aqua-blue/30 card-hover">
