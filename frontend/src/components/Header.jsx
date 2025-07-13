@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-gradient-to-r from-gray-900 via-gray-900 to-black border-b border-neon-blue/30 sticky top-0 z-50" style={{background: 'linear-gradient(135deg, #0a0a0a, #1a1a2e)', borderBottomColor: 'rgba(0, 191, 255, 0.3)', boxShadow: '0 2px 20px rgba(0, 191, 255, 0.1)'}}>
+      <header className="bg-gradient-to-r from-gray-900 via-gray-900 to-black border-b border-professional-blue/20 sticky top-0 z-50" style={{background: 'linear-gradient(135deg, #0f1419, #1a202c)', borderBottomColor: 'rgba(74, 144, 226, 0.2)', boxShadow: '0 2px 10px rgba(74, 144, 226, 0.1)'}}>
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -42,8 +42,8 @@ const Header = () => {
                   <span className="text-white font-bold text-lg">S</span>
                 </div>
                 <div className="hidden sm:block header-logo-text">
-                  <div className="neon-title text-xl font-bold">SENTINEL IA</div>
-                  <div className="text-xs text-neon-blue -mt-1">Tech MarketCap</div>
+                  <div className="professional-title text-xl font-bold">SENTINEL IA</div>
+                  <div className="text-xs text-professional-blue -mt-1">Tech MarketCap</div>
                 </div>
               </Link>
             </div>
@@ -56,8 +56,8 @@ const Header = () => {
                   to={item.href}
                   className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-all duration-300 rounded-md border border-transparent ${
                     item.active 
-                      ? 'text-neon-blue bg-neon-blue/10 border-neon-blue/30 shadow-neon' 
-                      : 'text-neon-blue hover:text-neon-cyan hover:bg-neon-blue/5 hover:border-neon-blue/20 hover:shadow-neon'
+                      ? 'text-professional-blue bg-professional-blue/10 border-professional-blue/30 shadow-subtle' 
+                      : 'text-professional-blue hover:text-professional-blue-light hover:bg-professional-blue/5 hover:border-professional-blue/20'
                   }`}
                 >
                   {item.icon && <item.icon className="w-4 h-4" />}
@@ -71,12 +71,12 @@ const Header = () => {
               {/* Search */}
               <div className="relative hidden sm:block">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-4 w-4 text-neon-blue" />
+                  <Search className="h-4 w-4 text-professional-blue" />
                 </div>
                 <Input
                   type="text"
                   placeholder="Buscar proyectos..."
-                  className="w-64 pl-10 bg-black/50 border-neon-blue/30 text-neon-blue placeholder-neon-blue/60 focus:border-neon-cyan focus:ring-neon-cyan focus:shadow-neon"
+                  className="w-64 pl-10 bg-black/50 border-professional-blue/30 text-professional-blue placeholder-professional-blue/60 focus:border-professional-blue-light focus:ring-professional-blue-light"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -89,7 +89,7 @@ const Header = () => {
                     <Button 
                       size="sm" 
                       onClick={() => setShowUserMenu(!showUserMenu)}
-                      className="sentinel-button text-neon-blue flex items-center space-x-2 hover:text-neon-cyan"
+                      className="sentinel-button text-professional-blue flex items-center space-x-2 hover:text-professional-blue-light"
                     >
                       {user?.type === 'wallet' ? (
                         <>
@@ -107,32 +107,32 @@ const Header = () => {
                     
                     {/* User Dropdown Menu */}
                     {showUserMenu && (
-                      <div className="absolute right-0 mt-2 w-48 bg-black/90 border border-neon-blue/30 rounded-lg shadow-neon py-2 z-50" style={{background: 'linear-gradient(135deg, #0a0a0a, #1a1a2e)', backdropFilter: 'blur(10px)'}}>
+                      <div className="absolute right-0 mt-2 w-48 glass-effect border border-professional-blue/30 rounded-lg shadow-card py-2 z-50">
                         <Link 
                           to="/profile" 
-                          className="block px-4 py-2 text-sm text-neon-blue hover:bg-neon-blue/10 hover:text-neon-cyan transition-all duration-300"
+                          className="block px-4 py-2 text-sm text-professional-blue hover:bg-professional-blue/10 hover:text-professional-blue-light transition-all duration-300"
                           onClick={() => setShowUserMenu(false)}
                         >
                           Mi Perfil
                         </Link>
                         <Link 
                           to="/settings" 
-                          className="block px-4 py-2 text-sm text-neon-blue hover:bg-neon-blue/10 hover:text-neon-cyan transition-all duration-300"
+                          className="block px-4 py-2 text-sm text-professional-blue hover:bg-professional-blue/10 hover:text-professional-blue-light transition-all duration-300"
                           onClick={() => setShowUserMenu(false)}
                         >
                           Dashboard
                         </Link>
                         <Link 
                           to="/auditorias" 
-                          className="block px-4 py-2 text-sm text-neon-blue hover:bg-neon-blue/10 hover:text-neon-cyan transition-all duration-300"
+                          className="block px-4 py-2 text-sm text-professional-blue hover:bg-professional-blue/10 hover:text-professional-blue-light transition-all duration-300"
                           onClick={() => setShowUserMenu(false)}
                         >
                           Mis Auditorías
                         </Link>
-                        <div className="border-t border-neon-blue/30 my-2"></div>
+                        <div className="border-t border-professional-blue/30 my-2"></div>
                         <button 
                           onClick={handleLogout}
-                          className="block w-full text-left px-4 py-2 text-sm text-neon-blue hover:bg-neon-blue/10 hover:text-neon-cyan transition-all duration-300"
+                          className="block w-full text-left px-4 py-2 text-sm text-professional-blue hover:bg-professional-blue/10 hover:text-professional-blue-light transition-all duration-300"
                         >
                           Cerrar Sesión
                         </button>
@@ -143,7 +143,7 @@ const Header = () => {
                   <Button 
                     size="sm" 
                     onClick={handleLoginClick}
-                    className="sentinel-button text-neon-blue hover:text-neon-cyan"
+                    className="sentinel-button text-professional-blue hover:text-professional-blue-light"
                   >
                     Conectar
                   </Button>
@@ -153,7 +153,7 @@ const Header = () => {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 rounded-md text-neon-blue hover:text-neon-cyan hover:bg-neon-blue/10 transition-all duration-300"
+                className="md:hidden p-2 rounded-md text-professional-blue hover:text-professional-blue-light hover:bg-professional-blue/10 transition-all duration-300"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -162,7 +162,7 @@ const Header = () => {
 
           {/* Mobile menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-neon-blue/30">
+            <div className="md:hidden py-4 border-t border-professional-blue/30">
               <div className="flex flex-col space-y-2">
                 {navigationItems.map((item) => (
                   <Link
@@ -170,8 +170,8 @@ const Header = () => {
                     to={item.href}
                     className={`flex items-center space-x-2 px-3 py-2 text-sm font-medium transition-all duration-300 rounded-md border border-transparent ${
                       item.active 
-                        ? 'text-neon-blue bg-neon-blue/10 border-neon-blue/30' 
-                        : 'text-neon-blue hover:text-neon-cyan hover:bg-neon-blue/5 hover:border-neon-blue/20'
+                        ? 'text-professional-blue bg-professional-blue/10 border-professional-blue/30' 
+                        : 'text-professional-blue hover:text-professional-blue-light hover:bg-professional-blue/5 hover:border-professional-blue/20'
                     }`}
                   >
                     {item.icon && <item.icon className="w-4 h-4" />}
@@ -179,10 +179,10 @@ const Header = () => {
                   </Link>
                 ))}
                 
-                <div className="pt-2 mt-2 border-t border-neon-blue/30">
+                <div className="pt-2 mt-2 border-t border-professional-blue/30">
                   {isAuthenticated ? (
                     <div className="space-y-2">
-                      <div className="px-3 py-2 text-neon-blue font-medium border border-neon-blue/30 rounded bg-neon-blue/5">
+                      <div className="px-3 py-2 text-professional-blue font-medium border border-professional-blue/30 rounded bg-professional-blue/5">
                         {user?.type === 'wallet' ? (
                           <div className="flex items-center space-x-2">
                             <Wallet className="w-4 h-4" />
@@ -199,7 +199,7 @@ const Header = () => {
                         onClick={handleLogout}
                         size="sm"
                         variant="outline" 
-                        className="w-full border-red-500 text-red-400 hover:bg-red-500 hover:text-white hover:shadow-red-500/50 hover:shadow-lg"
+                        className="w-full border-red-500 text-red-400 hover:bg-red-500 hover:text-white"
                       >
                         Cerrar Sesión
                       </Button>
@@ -208,7 +208,7 @@ const Header = () => {
                     <Button 
                       size="sm" 
                       onClick={handleLoginClick}
-                      className="w-full sentinel-button text-neon-blue hover:text-neon-cyan"
+                      className="w-full sentinel-button text-professional-blue hover:text-professional-blue-light"
                     >
                       Conectar
                     </Button>
