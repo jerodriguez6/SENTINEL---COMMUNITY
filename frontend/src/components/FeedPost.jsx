@@ -15,30 +15,30 @@ const FeedPost = ({ post }) => {
   };
 
   return (
-    <Card className="bg-zinc-800 border-zinc-700 hover:border-zinc-600 transition-all duration-300 group">
+    <Card className="glass-effect border-neon-blue/30 hover:border-neon-blue/50 transition-all duration-300 group card-hover">
       <CardContent className="p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-neon-blue to-neon-cyan rounded-full flex items-center justify-center shadow-neon">
               <span className="text-white font-medium">
                 {post.author.charAt(0).toUpperCase()}
               </span>
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-white font-medium">{post.author}</span>
+                <span className="neon-text font-medium">{post.author}</span>
                 {post.verified && (
-                  <div className="w-4 h-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-gradient-to-r from-neon-blue to-neon-cyan rounded-full flex items-center justify-center shadow-neon">
                     <span className="text-white text-xs">✓</span>
                   </div>
                 )}
-                <span className="text-slate-400 text-sm">@{post.handle}</span>
+                <span className="text-neon-blue/70 text-sm">@{post.handle}</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-slate-400">
+              <div className="flex items-center space-x-2 text-sm text-neon-blue/70">
                 <span>{post.timestamp}</span>
                 <span>•</span>
-                <Badge variant="outline" className="text-xs border-zinc-600 text-slate-400">
+                <Badge variant="outline" className="text-xs border-neon-blue/30 text-neon-blue bg-neon-blue/5">
                   {post.type}
                 </Badge>
               </div>
@@ -50,41 +50,41 @@ const FeedPost = ({ post }) => {
             <Button
               size="sm"
               onClick={handleFollow}
-              className={`text-white text-xs px-4 py-1 transition-colors ${
+              className={`text-xs px-4 py-1 transition-all duration-300 border ${
                 isFollowing 
-                  ? 'bg-zinc-600 hover:bg-zinc-700' 
-                  : 'bg-blue-600 hover:bg-blue-700'
+                  ? 'bg-neon-blue/20 border-neon-blue/50 text-neon-blue hover:bg-neon-blue/30' 
+                  : 'sentinel-button text-neon-blue hover:text-neon-cyan'
               }`}
             >
               <UserPlus className="w-3 h-3 mr-1" />
               {isFollowing ? 'Following' : 'Follow'}
             </Button>
             
-            <button className="p-2 hover:bg-zinc-700 rounded-full transition-colors">
-              <MoreHorizontal className="w-4 h-4 text-slate-400" />
+            <button className="p-2 hover:bg-neon-blue/10 rounded-full transition-all duration-300 text-neon-blue hover:text-neon-cyan">
+              <MoreHorizontal className="w-4 h-4" />
             </button>
           </div>
         </div>
 
         {/* Content */}
         <div className="mb-4">
-          <p className="text-white text-base leading-relaxed mb-3">
+          <p className="neon-text text-base leading-relaxed mb-3">
             {post.content}
           </p>
           
           {/* Chart/Image */}
           {post.image && (
-            <div className="relative overflow-hidden rounded-lg mb-3">
+            <div className="relative overflow-hidden rounded-lg mb-3 border border-neon-blue/20">
               <img 
                 src={post.image} 
                 alt={post.title}
                 className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               {post.chartData && (
-                <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full">
+                <div className="absolute top-4 left-4 glass-effect px-3 py-1 rounded-full border border-neon-blue/30">
                   <div className="flex items-center space-x-2">
-                    <TrendingUp className="w-4 h-4 text-green-400" />
-                    <span className="text-white text-sm font-medium">{post.chartData}</span>
+                    <TrendingUp className="w-4 h-4 text-neon-cyan" />
+                    <span className="neon-text text-sm font-medium">{post.chartData}</span>
                   </div>
                 </div>
               )}
@@ -97,7 +97,7 @@ const FeedPost = ({ post }) => {
               <Badge 
                 key={index} 
                 variant="outline" 
-                className="text-xs border-zinc-600 text-slate-300 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
+                className="text-xs border-neon-blue/30 text-neon-blue hover:border-neon-cyan hover:text-neon-cyan transition-all duration-300 cursor-pointer bg-neon-blue/5 hover:bg-neon-blue/10"
               >
                 #{tag}
               </Badge>
