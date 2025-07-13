@@ -1,7 +1,8 @@
-/* Custom styles for the crypto community app */
+/* Custom styles for the crypto community app - NEON FUTURISTIC THEME */
 .App {
   min-height: 100vh;
-  background-color: rgb(9 9 11 / var(--tw-bg-opacity, 1));
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f23 100%);
+  color: #00BFFF;
 }
 
 /* Remove default margin and padding */
@@ -16,22 +17,24 @@
   width: 100%;
 }
 
-/* Custom scrollbar styles */
+/* Custom scrollbar styles - NEON */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #18181b;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
+  background: linear-gradient(45deg, #00BFFF, #0080FF);
   border-radius: 4px;
+  box-shadow: 0 0 10px #00BFFF;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #52525b;
+  background: linear-gradient(45deg, #00FFFF, #00BFFF);
+  box-shadow: 0 0 15px #00FFFF;
 }
 
 /* Line clamp utilities */
@@ -49,9 +52,9 @@
   overflow: hidden;
 }
 
-/* Enhanced hover effects */
+/* Enhanced hover effects - NEON GLOW */
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 20px #00BFFF, 0 0 40px #00BFFF, 0 0 60px #00BFFF;
 }
 
 /* Custom animations */
@@ -70,11 +73,12 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* Glassmorphism effect */
+/* Glassmorphism effect with neon borders */
 .glass-effect {
-  background: rgba(24, 24, 27, 0.8);
+  background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.1);
 }
 
 /* Mobile responsive adjustments */
@@ -116,9 +120,9 @@
   transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Loading states */
+/* Loading states with neon effect */
 .loading-skeleton {
-  background: linear-gradient(90deg, #27272a 25%, #3f3f46 50%, #27272a 75%);
+  background: linear-gradient(90deg, #0a0a0a 25%, #00BFFF 50%, #0a0a0a 75%);
   background-size: 200% 100%;
   animation: loading 1.5s infinite;
 }
@@ -132,13 +136,14 @@
   }
 }
 
-/* Button hover effects */
+/* Button hover effects with neon glow */
 .btn-hover-scale {
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-hover-scale:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 20px currentColor;
 }
 
 /* Modal animations */
@@ -157,40 +162,50 @@
   }
 }
 
-/* Gradient text effect */
+/* Neon gradient text effect */
 .gradient-text {
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+  background: linear-gradient(45deg, #00BFFF, #0080FF, #00FFFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 20px #00BFFF;
 }
 
-/* Improved focus states */
+/* Improved focus states with neon */
 .focus-ring:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #00BFFF;
   outline-offset: 2px;
+  box-shadow: 0 0 15px #00BFFF;
 }
 
-/* Enhanced card hover effects */
+/* Enhanced card hover effects with neon */
 .card-hover {
   transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(0, 191, 255, 0.2);
 }
 
 .card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 191, 255, 0.3), 0 0 20px rgba(0, 191, 255, 0.2);
+  border-color: #00BFFF;
 }
 
-/* Custom button styles */
+/* Custom button styles - NEON FUTURISTIC */
 .sentinel-button {
-  background-color: #1B1D23;
-  background-image: linear-gradient(90deg, #4F5961, #1B1D23);
-  color: white;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
+  border: 2px solid #00BFFF;
+  color: #00BFFF;
+  text-shadow: 0 0 10px #00BFFF;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
   transition: all 0.3s ease;
 }
 
 .sentinel-button:hover {
-  background-image: linear-gradient(90deg, #5a6670, #2a2d35);
+  background: linear-gradient(135deg, #1a1a2e, #0f0f23);
+  border-color: #00FFFF;
+  color: #00FFFF;
+  text-shadow: 0 0 15px #00FFFF;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
 }
 
 /* Article card mobile styles */
@@ -221,11 +236,14 @@
   }
 }
 
-/* Crypto Ticker Styles */
+/* Crypto Ticker Styles - NEON ENHANCED */
 .ticker-wrapper {
   width: 100%;
   overflow: hidden;
   position: relative;
+  background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+  border-top: 1px solid rgba(0, 191, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 191, 255, 0.3);
 }
 
 .ticker-content {
@@ -236,13 +254,16 @@
 
 .ticker-item {
   padding: 8px 24px;
-  border-right: 1px solid #3f3f46;
+  border-right: 1px solid rgba(0, 191, 255, 0.3);
   flex-shrink: 0;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  color: #00BFFF;
+  text-shadow: 0 0 5px #00BFFF;
 }
 
 .ticker-item:hover {
-  background-color: rgba(63, 63, 70, 0.5);
+  background-color: rgba(0, 191, 255, 0.1);
+  text-shadow: 0 0 10px #00BFFF;
 }
 
 @keyframes scroll-left {
@@ -258,7 +279,7 @@
   animation-play-state: paused;
 }
 
-/* Header adjustments */
+/* Header adjustments - NEON STYLE */
 .header-logo {
   display: flex;
   align-items: center;
@@ -268,16 +289,22 @@
 .header-logo-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  background: linear-gradient(135deg, #00BFFF, #0080FF, #00FFFF);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
 }
 
 .header-logo-text {
   display: flex;
   flex-direction: column;
+}
+
+.header-logo-text h1 {
+  color: #0080FF !important;
+  text-shadow: 0 0 15px #0080FF, 0 0 30px #0080FF !important;
 }
 
 @media (max-width: 640px) {
@@ -289,4 +316,20 @@
     padding: 6px 16px;
     font-size: 0.875rem;
   }
+}
+
+/* Neon text effects for special elements */
+.neon-text {
+  color: #00BFFF;
+  text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF;
+}
+
+.neon-title {
+  color: #0080FF !important;
+  text-shadow: 0 0 15px #0080FF, 0 0 30px #0080FF, 0 0 45px #0080FF !important;
+}
+
+.neon-accent {
+  color: #00FFFF;
+  text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
 }
