@@ -15,7 +15,7 @@ const FeedPost = ({ post }) => {
   };
 
   return (
-    <Card className="glass-effect border-neon-blue/30 hover:border-neon-blue/50 transition-all duration-300 group card-hover">
+    <Card className="bg-black border-neon-blue/30 hover:border-neon-blue/50 transition-all duration-300 group card-hover">
       <CardContent className="p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
