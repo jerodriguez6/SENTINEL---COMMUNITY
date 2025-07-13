@@ -43,7 +43,7 @@ const Header = () => {
                 </div>
                 <div className="hidden sm:block header-logo-text">
                   <div className="professional-title text-xl font-bold">SENTINEL IA</div>
-                  <div className="text-xs text-professional-blue -mt-1">Tech MarketCap</div>
+                  <div className="text-xs text-aqua-blue -mt-1">Tech MarketCap</div>
                 </div>
               </Link>
             </div>
