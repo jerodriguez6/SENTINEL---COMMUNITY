@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
               isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
             } w-64`
           : `${sidebarWidth} fixed left-0 top-24 h-full z-30 transition-all duration-300`
-      } glass-effect border-r border-neon-blue/30`} style={{background: 'linear-gradient(135deg, #0a0a0a, #1a1a2e)', borderRightColor: 'rgba(0, 191, 255, 0.3)'}}>
+      } bg-black border-r border-aqua-blue/30`} style={{borderRightColor: 'rgba(64, 224, 208, 0.3)'}}>
         <div className="p-4">
           {/* Community Header */}
           <div className="flex items-center justify-between mb-6">
