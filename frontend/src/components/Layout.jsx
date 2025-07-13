@@ -102,11 +102,11 @@ const Layout = ({ children }) => {
           {/* Community Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 bg-gradient-to-r from-neon-blue to-neon-cyan rounded-full flex items-center justify-center shadow-neon">
+              <div className="w-6 h-6 bg-gradient-to-r from-aqua-blue to-aqua-light rounded-full flex items-center justify-center shadow-aqua">
                 <Users className="w-4 h-4 text-white" />
               </div>
               {(!isSidebarMinimized || isMobile) && (
-                <h2 className="neon-title text-lg font-semibold">COMMUNITY</h2>
+                <h2 className="professional-title text-lg font-semibold">COMMUNITY</h2>
               )}
             </div>
             
@@ -114,7 +114,7 @@ const Layout = ({ children }) => {
             {isMobile && (
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 hover:bg-neon-blue/10 rounded-full transition-all duration-300 text-neon-blue hover:text-neon-cyan"
+                className="p-2 hover:bg-aqua-blue/10 rounded-full transition-all duration-300 text-aqua-blue hover:text-aqua-light"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -124,7 +124,7 @@ const Layout = ({ children }) => {
             {!isMobile && (
               <button
                 onClick={() => setIsSidebarMinimized(!isSidebarMinimized)}
-                className="p-2 hover:bg-neon-blue/10 rounded-full transition-all duration-300 text-neon-blue hover:text-neon-cyan"
+                className="p-2 hover:bg-aqua-blue/10 rounded-full transition-all duration-300 text-aqua-blue hover:text-aqua-light"
               >
                 {isSidebarMinimized ? 
                   <ChevronRight className="w-5 h-5" /> : 
