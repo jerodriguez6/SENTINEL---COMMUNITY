@@ -187,13 +187,13 @@ const Layout = ({ children }) => {
 
       {/* Right Sidebar - Trending & Recommendations - Hidden on Mobile */}
       {!isMobile && (
-        <div className="w-80 glass-effect border-l border-neon-blue/30 fixed right-0 top-24 h-full overflow-y-auto z-30" style={{background: 'linear-gradient(135deg, #0a0a0a, #1a1a2e)', borderLeftColor: 'rgba(0, 191, 255, 0.3)'}}>
+        <div className="w-80 glass-effect border-l border-aqua-blue/30 fixed right-0 top-24 h-full overflow-y-auto z-30" style={{background: 'linear-gradient(135deg, #0f1419, #1a202c)', borderLeftColor: 'rgba(64, 224, 208, 0.3)'}}>
           <div className="p-6 space-y-6">
             {/* Trending Topics */}
-            <Card className="glass-effect border-neon-blue/30 card-hover">
+            <Card className="glass-effect border-aqua-blue/30 card-hover">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2 neon-title">
-                  <TrendingUp className="w-5 h-5 text-neon-cyan" />
+                <CardTitle className="flex items-center space-x-2 professional-title">
+                  <TrendingUp className="w-5 h-5 text-aqua-light" />
                   <span>Trending Topics</span>
                 </CardTitle>
               </CardHeader>
@@ -201,20 +201,20 @@ const Layout = ({ children }) => {
                 {trendingTopics.map((topic, index) => (
                   <div 
                     key={index} 
-                    className="flex items-center justify-between p-3 rounded-lg glass-effect hover:bg-neon-blue/10 transition-all duration-300 cursor-pointer group border border-transparent hover:border-neon-blue/30"
+                    className="flex items-center justify-between p-3 rounded-lg glass-effect hover:bg-aqua-blue/10 transition-all duration-300 cursor-pointer group border border-transparent hover:border-aqua-blue/30"
                   >
                     <div className="flex items-center space-x-3">
-                      <span className="text-neon-blue text-sm font-medium w-4">
+                      <span className="text-aqua-blue text-sm font-medium w-4">
                         {index + 1}
                       </span>
                       <div className="flex items-center space-x-2">
-                        <Hash className="w-4 h-4 text-neon-blue group-hover:text-neon-cyan transition-colors" />
-                        <span className="text-neon-blue group-hover:text-neon-cyan transition-colors">
+                        <Hash className="w-4 h-4 text-aqua-blue group-hover:text-aqua-light transition-colors" />
+                        <span className="text-aqua-blue group-hover:text-aqua-light transition-colors">
                           {topic.name}
                         </span>
                       </div>
                     </div>
-                    <div className="text-neon-blue/70 text-sm">
+                    <div className="text-aqua-blue/70 text-sm">
                       {topic.posts}
                     </div>
                   </div>
@@ -223,41 +223,41 @@ const Layout = ({ children }) => {
             </Card>
 
             {/* Recommended Accounts */}
-            <Card className="glass-effect border-neon-blue/30 card-hover">
+            <Card className="glass-effect border-aqua-blue/30 card-hover">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2 neon-title">
-                  <Users className="w-5 h-5 text-neon-cyan" />
+                <CardTitle className="flex items-center space-x-2 professional-title">
+                  <Users className="w-5 h-5 text-aqua-light" />
                   <span>Recommended Accounts</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {recommendedAccounts.map((account, index) => (
-                  <div key={index} className="border-b border-neon-blue/30 pb-4 last:border-0">
+                  <div key={index} className="border-b border-aqua-blue/30 pb-4 last:border-0">
                     {/* Account Header */}
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-neon-blue to-neon-cyan rounded-full flex items-center justify-center shadow-neon">
+                        <div className="w-10 h-10 bg-gradient-to-r from-aqua-blue to-aqua-light rounded-full flex items-center justify-center shadow-aqua">
                           <span className="text-white font-medium">
                             {account.name.charAt(0).toUpperCase()}
                           </span>
                         </div>
                         <div>
                           <div className="flex items-center space-x-1">
-                            <span className="neon-text font-medium text-sm">
+                            <span className="professional-text font-medium text-sm">
                               {account.name}
                             </span>
                             {account.verified && (
-                              <Verified className="w-4 h-4 text-neon-cyan" />
+                              <Verified className="w-4 h-4 text-aqua-light" />
                             )}
                           </div>
-                          <span className="text-neon-blue/70 text-xs">
+                          <span className="text-aqua-blue/70 text-xs">
                             @{account.handle}
                           </span>
                         </div>
                       </div>
                       <Button 
                         size="sm" 
-                        className="sentinel-button text-neon-blue text-xs px-3 py-1 hover:text-neon-cyan"
+                        className="sentinel-button text-aqua-blue text-xs px-3 py-1 hover:text-aqua-light"
                       >
                         <UserPlus className="w-3 h-3 mr-1" />
                         Follow
@@ -267,11 +267,11 @@ const Layout = ({ children }) => {
                     {/* Recent Posts */}
                     <div className="space-y-2">
                       {account.recentPosts.map((post, postIndex) => (
-                        <div key={postIndex} className="glass-effect rounded-lg p-2 border border-neon-blue/20">
-                          <p className="text-neon-blue text-xs mb-1">
+                        <div key={postIndex} className="glass-effect rounded-lg p-2 border border-aqua-blue/20">
+                          <p className="text-aqua-blue text-xs mb-1">
                             {post.text}
                           </p>
-                          <span className="text-neon-blue/60 text-xs">
+                          <span className="text-aqua-blue/60 text-xs">
                             {post.time}
                           </span>
                         </div>
