@@ -74,15 +74,15 @@ const LoginModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <Card className="bg-zinc-900 border-zinc-800 w-full max-w-md">
+      <Card className="bg-black border-aqua-blue/30 w-full max-w-md">
         <CardHeader className="relative">
           <button
             onClick={onClose}
-            className="absolute right-4 top-4 text-slate-400 hover:text-white transition-colors"
+            className="absolute right-4 top-4 text-aqua-blue/70 hover:text-aqua-light transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
-          <CardTitle className="text-white text-center">
+          <CardTitle className="professional-title text-center">
             {isLogin ? 'Iniciar Sesión' : 'Registrarse'}
           </CardTitle>
         </CardHeader>
