@@ -107,49 +107,50 @@ const FeedPost = ({ post }) => {
 
         {/* Metrics */}
         {post.metrics && (
-          <div className="bg-zinc-700/50 rounded-lg p-3 mb-4">
+          <div className="glass-effect rounded-lg p-3 mb-4 border border-neon-blue/20">
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-slate-400">Price: </span>
-                <span className="text-white font-medium">{post.metrics.price}</span>
+                <span className="text-neon-blue/70">Price: </span>
+                <span className="neon-text font-medium">{post.metrics.price}</span>
               </div>
               <div>
-                <span className="text-slate-400">24h Change: </span>
-                <span className={`font-medium ${post.metrics.change.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
+                <span className="text-neon-blue/70">24h Change: </span>
+                <span className={`font-medium ${post.metrics.change.startsWith('+') ? 'text-green-400' : 'text-red-400'}`} style={{textShadow: post.metrics.change.startsWith('+') ? '0 0 10px #4ade80' : '0 0 10px #ef4444'}}>
                   {post.metrics.change}
                 </span>
               </div>
               <div>
-                <span className="text-slate-400">Volume: </span>
-                <span className="text-white font-medium">{post.metrics.volume}</span>
+                <span className="text-neon-blue/70">Volume: </span>
+                <span className="neon-text font-medium">{post.metrics.volume}</span>
               </div>
               <div>
-                <span className="text-slate-400">Market Cap: </span>
-                <span className="text-white font-medium">{post.metrics.marketCap}</span>
+                <span className="text-neon-blue/70">Market Cap: </span>
+                <span className="neon-text font-medium">{post.metrics.marketCap}</span>
               </div>
             </div>
           </div>
         )}
 
         {/* Actions */}
-        <div className="flex items-center justify-between border-t border-zinc-700 pt-4">
+        <div className="flex items-center justify-between border-t border-neon-blue/30 pt-4">
           <div className="flex items-center space-x-6">
             <button 
               onClick={() => setIsLiked(!isLiked)}
-              className={`flex items-center space-x-2 hover:text-red-400 transition-colors ${
-                isLiked ? 'text-red-400' : 'text-slate-400'
+              className={`flex items-center space-x-2 transition-all duration-300 ${
+                isLiked ? 'text-red-400' : 'text-neon-blue hover:text-red-400'
               }`}
+              style={{textShadow: isLiked ? '0 0 10px #ef4444' : '0 0 5px currentColor'}}
             >
               <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
               <span className="text-sm">{post.likes}</span>
             </button>
             
-            <button className="flex items-center space-x-2 text-slate-400 hover:text-orange-400 transition-colors">
+            <button className="flex items-center space-x-2 text-neon-blue hover:text-neon-cyan transition-all duration-300" style={{textShadow: '0 0 5px currentColor'}}>
               <MessageCircle className="w-4 h-4" />
               <span className="text-sm">{post.comments}</span>
             </button>
             
-            <button className="flex items-center space-x-2 text-slate-400 hover:text-green-400 transition-colors">
+            <button className="flex items-center space-x-2 text-neon-blue hover:text-green-400 transition-all duration-300" style={{textShadow: '0 0 5px currentColor'}}>
               <Share2 className="w-4 h-4" />
               <span className="text-sm">{post.shares}</span>
             </button>
@@ -157,7 +158,17 @@ const FeedPost = ({ post }) => {
           
           <button 
             onClick={() => setIsBookmarked(!isBookmarked)}
-            className={`p-2 hover:bg-zinc-700 rounded-full transition-colors ${
+            className={`p-2 hover:bg-neon-blue/10 rounded-full transition-all duration-300 ${
+              isBookmarked ? 'text-neon-cyan' : 'text-neon-blue'
+            }`}
+            style={{textShadow: '0 0 5px currentColor'}}
+          >
+            <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
+          </button>
+        </div>
+      </CardContent>
+    </Card>
+  );
               isBookmarked ? 'text-yellow-400' : 'text-slate-400'
             }`}
           >
