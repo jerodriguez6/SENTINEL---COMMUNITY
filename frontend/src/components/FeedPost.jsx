@@ -172,6 +172,3 @@ const FeedPost = ({ post }) => {
 };
 
 export default FeedPost;
-};
-
-export default FeedPost;
