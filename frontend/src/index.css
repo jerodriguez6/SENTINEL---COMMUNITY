@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global neon theme styles */
+/* Global professional theme styles */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -10,55 +10,52 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #0a0a0a;
-    color: #00BFFF; /* Color azul neón para todo el texto por defecto */
+    background-color: #0f1419;
+    color: #5BA3F5; /* Color azul profesional para texto */
 }
 
-/* Títulos con azul más intenso y efecto glow */
+/* Títulos con azul profesional y sutil efecto */
 h1, h2, h3, h4, h5, h6 {
-    color: #0080FF !important;
-    text-shadow: 0 0 10px #0080FF, 0 0 20px #0080FF;
+    color: #4A90E2 !important;
+    text-shadow: 0 1px 3px rgba(74, 144, 226, 0.3);
 }
 
 /* Enlaces y elementos interactivos */
 a {
-    color: #00BFFF;
-    text-shadow: 0 0 5px #00BFFF;
+    color: #5BA3F5;
     transition: all 0.3s ease;
 }
 
 a:hover {
-    color: #00FFFF;
-    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+    color: #6BA6F0;
 }
 
-/* Botones con efecto neón */
+/* Botones con efecto sutil */
 button {
-    text-shadow: 0 0 5px currentColor;
     transition: all 0.3s ease;
 }
 
 button:hover {
-    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+    transform: translateY(-1px);
 }
 
 /* Texto en inputs y forms */
 input, textarea, select {
-    color: #00BFFF;
+    color: #5BA3F5;
 }
 
 input::placeholder, textarea::placeholder {
-    color: #4DA6FF;
+    color: #6BA6F0;
+    opacity: 0.7;
 }
 
 /* Párrafos y texto general */
 p, span, div {
-    color: #00BFFF;
+    color: #5BA3F5;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
-    color: #00FFFF;
-    text-shadow: 0 0 5px #00FFFF;
+    color: #3B82F6;
 }
