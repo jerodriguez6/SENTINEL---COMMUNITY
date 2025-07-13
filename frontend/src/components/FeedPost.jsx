@@ -169,15 +169,9 @@ const FeedPost = ({ post }) => {
       </CardContent>
     </Card>
   );
-              isBookmarked ? 'text-yellow-400' : 'text-slate-400'
-            }`}
-          >
-            <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
-          </button>
-        </div>
-      </CardContent>
-    </Card>
-  );
+};
+
+export default FeedPost;
 };
 
 export default FeedPost;
