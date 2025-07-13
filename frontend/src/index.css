@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global neon theme styles */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -9,9 +10,55 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #0a0a0a;
+    color: #00BFFF; /* Color azul neón para todo el texto por defecto */
+}
+
+/* Títulos con azul más intenso y efecto glow */
+h1, h2, h3, h4, h5, h6 {
+    color: #0080FF !important;
+    text-shadow: 0 0 10px #0080FF, 0 0 20px #0080FF;
+}
+
+/* Enlaces y elementos interactivos */
+a {
+    color: #00BFFF;
+    text-shadow: 0 0 5px #00BFFF;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #00FFFF;
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+}
+
+/* Botones con efecto neón */
+button {
+    text-shadow: 0 0 5px currentColor;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+/* Texto en inputs y forms */
+input, textarea, select {
+    color: #00BFFF;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #4DA6FF;
+}
+
+/* Párrafos y texto general */
+p, span, div {
+    color: #00BFFF;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+    color: #00FFFF;
+    text-shadow: 0 0 5px #00FFFF;
 }
