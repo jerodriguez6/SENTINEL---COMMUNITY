@@ -81,7 +81,7 @@ const Layout = ({ children }) => {
   const mainMargin = isSidebarMinimized ? 'ml-16' : 'ml-64';
 
   return (
-    <div className="flex min-h-screen" style={{ backgroundColor: 'rgb(9 9 11)' }}>
+    <div className="flex min-h-screen" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f23 100%)' }}>
       {/* Mobile Overlay */}
       {isMobile && isMobileMenuOpen && (
         <div 
@@ -97,16 +97,16 @@ const Layout = ({ children }) => {
               isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
             } w-64`
           : `${sidebarWidth} fixed left-0 top-24 h-full z-30 transition-all duration-300`
-      } bg-zinc-900 border-r border-zinc-800`}>
+      } glass-effect border-r border-neon-blue/30`} style={{background: 'linear-gradient(135deg, #0a0a0a, #1a1a2e)', borderRightColor: 'rgba(0, 191, 255, 0.3)'}}>
         <div className="p-4">
           {/* Community Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-2">
-              <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+              <div className="w-6 h-6 bg-gradient-to-r from-neon-blue to-neon-cyan rounded-full flex items-center justify-center shadow-neon">
                 <Users className="w-4 h-4 text-white" />
               </div>
               {(!isSidebarMinimized || isMobile) && (
-                <h2 className="text-white font-semibold text-lg">COMMUNITY</h2>
+                <h2 className="neon-title text-lg font-semibold">COMMUNITY</h2>
               )}
             </div>
             
@@ -114,9 +114,9 @@ const Layout = ({ children }) => {
             {isMobile && (
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 hover:bg-zinc-800 rounded-full transition-colors"
+                className="p-2 hover:bg-neon-blue/10 rounded-full transition-all duration-300 text-neon-blue hover:text-neon-cyan"
               >
-                <X className="w-5 h-5 text-slate-400" />
+                <X className="w-5 h-5" />
               </button>
             )}
             
@@ -124,11 +124,11 @@ const Layout = ({ children }) => {
             {!isMobile && (
               <button
                 onClick={() => setIsSidebarMinimized(!isSidebarMinimized)}
-                className="p-2 hover:bg-zinc-800 rounded-full transition-colors"
+                className="p-2 hover:bg-neon-blue/10 rounded-full transition-all duration-300 text-neon-blue hover:text-neon-cyan"
               >
                 {isSidebarMinimized ? 
-                  <ChevronRight className="w-5 h-5 text-slate-400" /> : 
-                  <ChevronLeft className="w-5 h-5 text-slate-400" />
+                  <ChevronRight className="w-5 h-5" /> : 
+                  <ChevronLeft className="w-5 h-5" />
                 }
               </button>
             )}
@@ -141,15 +141,15 @@ const Layout = ({ children }) => {
                 key={item.id}
                 to={item.path}
                 onClick={(item.id === 'mypage' || item.id === 'notifications') ? handleLoginRequired : undefined}
-                className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-colors group ${
+                className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-all duration-300 group border border-transparent ${
                   isActive(item.path)
-                    ? 'bg-gradient-to-r from-orange-500/20 to-red-600/20 text-orange-400 border-l-4 border-orange-500'
-                    : 'text-slate-400 hover:text-white hover:bg-zinc-800'
+                    ? 'bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 text-neon-blue border-l-4 border-neon-blue shadow-neon'
+                    : 'text-neon-blue hover:text-neon-cyan hover:bg-neon-blue/10 hover:border-neon-blue/20'
                 } ${isSidebarMinimized && !isMobile ? 'justify-center' : ''}`}
                 title={isSidebarMinimized && !isMobile ? item.name : undefined}
               >
                 <item.icon className={`w-5 h-5 ${
-                  isActive(item.path) ? 'text-orange-400' : 'text-slate-500 group-hover:text-white'
+                  isActive(item.path) ? 'text-neon-blue' : 'text-neon-blue group-hover:text-neon-cyan'
                 }`} />
                 {(!isSidebarMinimized || isMobile) && (
                   <span className="font-medium">{item.name}</span>
@@ -166,9 +166,9 @@ const Layout = ({ children }) => {
         {isMobile && (
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="fixed top-28 left-4 z-30 p-2 bg-zinc-800 rounded-full border border-zinc-700 hover:bg-zinc-700 transition-colors"
+            className="fixed top-28 left-4 z-30 p-2 bg-black/50 rounded-full border border-neon-blue/30 hover:bg-neon-blue/10 transition-all duration-300 text-neon-blue hover:text-neon-cyan shadow-neon"
           >
-            <Users className="w-5 h-5 text-white" />
+            <Users className="w-5 h-5" />
           </button>
         )}
         
@@ -177,7 +177,7 @@ const Layout = ({ children }) => {
 
       {/* Right Sidebar - Trending & Recommendations - Hidden on Mobile */}
       {!isMobile && (
-        <div className="w-80 bg-zinc-900 border-l border-zinc-800 fixed right-0 top-24 h-full overflow-y-auto z-30">
+        <div className="w-80 glass-effect border-l border-neon-blue/30 fixed right-0 top-24 h-full overflow-y-auto z-30" style={{background: 'linear-gradient(135deg, #0a0a0a, #1a1a2e)', borderLeftColor: 'rgba(0, 191, 255, 0.3)'}}>
           <div className="p-6 space-y-6">
             {/* Trending Topics */}
             <Card className="bg-zinc-800 border-zinc-700">
