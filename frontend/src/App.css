@@ -2,22 +2,102 @@
 .App {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f1419 0%, #1a202c 50%, #0f1419 100%);
-  color: #5BA3F5;
+  color: #40E0D0;
 }
 
-/* Remove default margin and padding */
+/* Professional text effects */
+.professional-text {
+  color: #40E0D0;
+}
+
+.professional-title {
+  color: #4A90E2 !important;
+  text-shadow: 0 1px 3px rgba(74, 144, 226, 0.3) !important;
+}
+
+.professional-accent {
+  color: #7FFFD4;
+}
+
+/* Enhanced card hover effects - Subtle */
+.card-hover {
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(64, 224, 208, 0.2);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(64, 224, 208, 0.15);
+  border-color: rgba(64, 224, 208, 0.3);
+}
+
+/* Custom button styles - Professional */
+.sentinel-button {
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.8), rgba(26, 32, 44, 0.8));
+  border: 1px solid rgba(64, 224, 208, 0.4);
+  color: #40E0D0;
+  box-shadow: 0 2px 10px rgba(64, 224, 208, 0.1);
+  transition: all 0.3s ease;
+}
+
+.sentinel-button:hover {
+  background: linear-gradient(135deg, rgba(26, 32, 44, 0.8), rgba(15, 20, 25, 0.8));
+  border-color: rgba(127, 255, 212, 0.6);
+  color: #7FFFD4;
+  box-shadow: 0 4px 15px rgba(64, 224, 208, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Crypto Ticker Styles - Professional */
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(90deg, transparent, rgba(64, 224, 208, 0.05), transparent);
+  border-top: 1px solid rgba(64, 224, 208, 0.2);
+  border-bottom: 1px solid rgba(64, 224, 208, 0.2);
+}
+
+.ticker-item {
+  padding: 8px 24px;
+  border-right: 1px solid rgba(64, 224, 208, 0.2);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  color: #40E0D0;
+}
+
+.ticker-item:hover {
+  background-color: rgba(64, 224, 208, 0.1);
+}
+
+/* Header adjustments - Professional */
+.header-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #4A90E2, #40E0D0, #7FFFD4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(64, 224, 208, 0.3);
+}
+
+.header-logo-text h1 {
+  color: #4A90E2 !important;
+  text-shadow: 0 1px 3px rgba(74, 144, 226, 0.3) !important;
+}
+
+/* All other existing styles remain the same... */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Full width layout */
 .App {
   width: 100%;
 }
 
-/* Custom scrollbar styles - Professional */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -27,15 +107,14 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #4A90E2, #5BA3F5);
+  background: linear-gradient(45deg, #40E0D0, #7FFFD4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #6BA6F0, #4A90E2);
+  background: linear-gradient(45deg, #7FFFD4, #40E0D0);
 }
 
-/* Line clamp utilities */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -50,12 +129,10 @@
   overflow: hidden;
 }
 
-/* Enhanced hover effects - Subtle */
 .hover-glow:hover {
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.15);
+  box-shadow: 0 4px 15px rgba(64, 224, 208, 0.15);
 }
 
-/* Custom animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -71,127 +148,13 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* Glassmorphism effect with professional borders */
 .glass-effect {
   background: rgba(15, 20, 25, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(74, 144, 226, 0.2);
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+  border: 1px solid rgba(64, 224, 208, 0.2);
+  box-shadow: 0 4px 15px rgba(64, 224, 208, 0.1);
 }
 
-/* Professional text effects */
-.professional-text {
-  color: #5BA3F5;
-}
-
-.professional-title {
-  color: #4A90E2 !important;
-  text-shadow: 0 1px 3px rgba(74, 144, 226, 0.3) !important;
-}
-
-.professional-accent {
-  color: #3B82F6;
-}
-
-/* Enhanced card hover effects - Subtle */
-.card-hover {
-  transition: all 0.3s ease-in-out;
-  border: 1px solid rgba(74, 144, 226, 0.2);
-}
-
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.15);
-  border-color: rgba(74, 144, 226, 0.3);
-}
-
-/* Custom button styles - Professional */
-.sentinel-button {
-  background: linear-gradient(135deg, rgba(15, 20, 25, 0.8), rgba(26, 32, 44, 0.8));
-  border: 1px solid rgba(74, 144, 226, 0.4);
-  color: #4A90E2;
-  box-shadow: 0 2px 10px rgba(74, 144, 226, 0.1);
-  transition: all 0.3s ease;
-}
-
-.sentinel-button:hover {
-  background: linear-gradient(135deg, rgba(26, 32, 44, 0.8), rgba(15, 20, 25, 0.8));
-  border-color: rgba(74, 144, 226, 0.6);
-  color: #6BA6F0;
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
-  transform: translateY(-1px);
-}
-
-/* Crypto Ticker Styles - Professional */
-.ticker-wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.05), transparent);
-  border-top: 1px solid rgba(74, 144, 226, 0.2);
-  border-bottom: 1px solid rgba(74, 144, 226, 0.2);
-}
-
-.ticker-content {
-  display: flex;
-  animation: scroll-left 60s linear infinite;
-  width: fit-content;
-}
-
-.ticker-item {
-  padding: 8px 24px;
-  border-right: 1px solid rgba(74, 144, 226, 0.2);
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-  color: #5BA3F5;
-}
-
-.ticker-item:hover {
-  background-color: rgba(74, 144, 226, 0.1);
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.ticker-wrapper:hover .ticker-content {
-  animation-play-state: paused;
-}
-
-/* Header adjustments - Professional */
-.header-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.header-logo-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #4A90E2, #5BA3F5, #3B82F6);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-}
-
-.header-logo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.header-logo-text h1 {
-  color: #4A90E2 !important;
-  text-shadow: 0 1px 3px rgba(74, 144, 226, 0.3) !important;
-}
-
-/* Mobile and responsive styles remain the same */
 @media (max-width: 768px) {
   .App {
     overflow-x: hidden;
@@ -221,13 +184,12 @@
   }
 }
 
-/* All other existing styles... */
 .sidebar-transition {
   transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .loading-skeleton {
-  background: linear-gradient(90deg, #0f1419 25%, #4A90E2 50%, #0f1419 75%);
+  background: linear-gradient(90deg, #0f1419 25%, #40E0D0 50%, #0f1419 75%);
   background-size: 200% 100%;
   animation: loading 1.5s infinite;
 }
@@ -265,14 +227,14 @@
 }
 
 .gradient-text {
-  background: linear-gradient(45deg, #4A90E2, #5BA3F5, #3B82F6);
+  background: linear-gradient(45deg, #4A90E2, #40E0D0, #7FFFD4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .focus-ring:focus {
-  outline: 2px solid #4A90E2;
+  outline: 2px solid #40E0D0;
   outline-offset: 2px;
 }
 
@@ -309,4 +271,34 @@
     padding: 6px 16px;
     font-size: 0.875rem;
   }
+}
+
+.ticker-content {
+  display: flex;
+  animation: scroll-left 60s linear infinite;
+  width: fit-content;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-wrapper:hover .ticker-content {
+  animation-play-state: paused;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo-text {
+  display: flex;
+  flex-direction: column;
 }
