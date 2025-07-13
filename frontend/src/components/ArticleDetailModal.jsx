@@ -8,48 +8,48 @@ const ArticleDetailModal = ({ article, isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-slate-800 border border-slate-700 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-black border border-aqua-blue/30 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-slate-800 border-b border-slate-700 p-6 flex items-center justify-between">
+        <div className="sticky top-0 bg-black border-b border-aqua-blue/30 p-6 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Badge variant="secondary" className="bg-gradient-to-r from-orange-500/20 to-red-600/20 text-orange-400 border-orange-500/30">
+            <Badge variant="secondary" className="bg-gradient-to-r from-aqua-blue/20 to-aqua-light/20 text-aqua-blue border-aqua-blue/30">
               {article.category}
             </Badge>
-            <div className="flex items-center space-x-2 text-sm text-slate-400">
+            <div className="flex items-center space-x-2 text-sm text-aqua-blue/70">
               <Calendar className="w-4 h-4" />
               <span>{article.timestamp}</span>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-700 rounded-full transition-colors"
+            className="p-2 hover:bg-aqua-blue/10 rounded-full transition-colors"
           >
-            <X className="w-5 h-5 text-slate-400 hover:text-white" />
+            <X className="w-5 h-5 text-aqua-blue/70 hover:text-aqua-light" />
           </button>
         </div>
 
         {/* Content */}
         <div className="p-6">
           {/* Title */}
-          <h1 className="text-3xl font-bold text-white mb-4 leading-tight">
+          <h1 className="professional-title text-3xl font-bold mb-4 leading-tight">
             {article.title}
           </h1>
 
           {/* Author Info */}
-          <div className="flex items-center space-x-3 mb-6 pb-6 border-b border-slate-700">
-            <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+          <div className="flex items-center space-x-3 mb-6 pb-6 border-b border-aqua-blue/30">
+            <div className="w-12 h-12 bg-gradient-to-r from-aqua-blue to-aqua-light rounded-full flex items-center justify-center">
               <span className="text-white font-medium text-lg">
                 {article.author.charAt(0).toUpperCase()}
               </span>
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-white font-medium">{article.author}</span>
-                <div className="w-4 h-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+                <span className="professional-text font-medium">{article.author}</span>
+                <div className="w-4 h-4 bg-gradient-to-r from-aqua-blue to-aqua-light rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
               </div>
-              <span className="text-slate-400 text-sm">Editor en Jefe de Auditoría</span>
+              <span className="text-aqua-blue/70 text-sm">Editor en Jefe de Auditoría</span>
             </div>
           </div>
 
