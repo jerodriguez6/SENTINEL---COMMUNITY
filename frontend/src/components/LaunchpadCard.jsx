@@ -120,7 +120,7 @@ const LaunchpadCard = ({ project }) => {
         {/* Actions */}
         <div className="flex space-x-2">
           <Button 
-            className="flex-1 bg-gradient-to-r from-aqua-blue to-aqua-light hover:from-aqua-light hover:to-aqua-blue text-white shadow-aqua hover:shadow-hover transition-all duration-300"
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
             onClick={() => setIsInterested(!isInterested)}
           >
             <Target className="w-4 h-4 mr-2" />
