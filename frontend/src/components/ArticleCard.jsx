@@ -28,18 +28,18 @@ const ArticleCard = ({ article }) => {
             <div className="flex-1">
               {/* Category Badge */}
               <div className="mb-2">
-                <Badge variant="secondary" className="bg-gradient-to-r from-orange-500/20 to-red-600/20 text-orange-400 border-orange-500/30">
+                <Badge variant="secondary" className="bg-gradient-to-r from-aqua-blue/20 to-aqua-light/20 text-aqua-blue border-aqua-blue/30">
                   {article.category}
                 </Badge>
               </div>
 
               {/* Title */}
-              <h3 className="text-white font-semibold text-lg mb-2 line-clamp-2 group-hover:text-orange-400 transition-colors">
+              <h3 className="professional-title font-semibold text-lg mb-2 line-clamp-2 group-hover:text-aqua-light transition-colors">
                 {article.title}
               </h3>
 
               {/* Description */}
-              <p className="text-slate-400 text-sm mb-3 line-clamp-2">
+              <p className="text-aqua-blue/70 text-sm mb-3 line-clamp-2">
                 {article.description}
               </p>
 
@@ -49,7 +49,7 @@ const ArticleCard = ({ article }) => {
                   <Badge 
                     key={index} 
                     variant="outline" 
-                    className="text-xs border-slate-600 text-slate-300 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
+                    className="text-xs border-aqua-blue/30 text-aqua-blue hover:border-aqua-light hover:text-aqua-light transition-colors cursor-pointer bg-aqua-blue/5"
                   >
                     #{tag}
                   </Badge>
@@ -59,13 +59,13 @@ const ArticleCard = ({ article }) => {
               {/* Author and Stats */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-aqua-blue to-aqua-light rounded-full flex items-center justify-center">
                     <span className="text-white text-xs font-medium">
                       {article.author.charAt(0).toUpperCase()}
                     </span>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-slate-400">
-                    <span className="hover:text-orange-400 transition-colors cursor-pointer">
+                  <div className="flex items-center space-x-2 text-sm text-aqua-blue/70">
+                    <span className="hover:text-aqua-light transition-colors cursor-pointer">
                       {article.author}
                     </span>
                     <span>•</span>
@@ -73,8 +73,8 @@ const ArticleCard = ({ article }) => {
                   </div>
                 </div>
                 
-                <div className="flex items-center space-x-4 text-sm text-slate-400">
-                  <div className="flex items-center space-x-1 hover:text-orange-400 transition-colors cursor-pointer">
+                <div className="flex items-center space-x-4 text-sm text-aqua-blue/70">
+                  <div className="flex items-center space-x-1 hover:text-aqua-light transition-colors cursor-pointer">
                     <Eye className="w-4 h-4" />
                     <span>{article.views}</span>
                   </div>
@@ -86,7 +86,7 @@ const ArticleCard = ({ article }) => {
                     <MessageCircle className="w-4 h-4" />
                     <span>{article.comments}</span>
                   </div>
-                  <button className="p-1 hover:text-orange-400 transition-colors">
+                  <button className="p-1 hover:text-aqua-light transition-colors">
                     <Share2 className="w-4 h-4" />
                   </button>
                   <button className="p-1 hover:text-yellow-400 transition-colors">
