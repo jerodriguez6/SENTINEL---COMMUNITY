@@ -139,10 +139,10 @@ const LivesPage = () => {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-white mb-2">
+              <h1 className="professional-title text-3xl font-bold mb-2">
                 Lives
               </h1>
-              <p className="text-slate-400">
+              <p className="text-aqua-blue/70">
                 Participa en transmisiones en vivo sobre criptomonedas
               </p>
             </div>
