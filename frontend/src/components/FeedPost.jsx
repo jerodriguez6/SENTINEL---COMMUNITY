@@ -50,10 +50,10 @@ const FeedPost = ({ post }) => {
             <Button
               size="sm"
               onClick={handleFollow}
-              className={`text-xs px-4 py-1 transition-all duration-300 border ${
+              className={`text-xs px-4 py-1 transition-all duration-300 ${
                 isFollowing 
-                  ? 'bg-neon-blue/20 border-neon-blue/50 text-neon-blue hover:bg-neon-blue/30' 
-                  : 'sentinel-button text-neon-blue hover:text-neon-cyan'
+                  ? 'bg-gray-600 hover:bg-gray-700 text-white' 
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
               }`}
             >
               <UserPlus className="w-3 h-3 mr-1" />
