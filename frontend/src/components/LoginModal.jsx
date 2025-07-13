@@ -93,11 +93,7 @@ const LoginModal = ({ isOpen, onClose }) => {
             <Button
               onClick={handleGoogleLogin}
               variant="outline"
-              className="w-full border-zinc-700 text-white hover:bg-zinc-800"
-              style={{
-                backgroundColor: '#1B1D23',
-                backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-              }}
+              className="w-full border-aqua-blue/30 text-aqua-blue hover:bg-aqua-blue/10 hover:text-aqua-light bg-black"
             >
               <div className="flex items-center space-x-2">
                 <div className="w-5 h-5 bg-gradient-to-r from-blue-500 to-red-500 rounded-full flex items-center justify-center">
@@ -111,11 +107,7 @@ const LoginModal = ({ isOpen, onClose }) => {
               onClick={handleWalletConnect}
               variant="outline"
               disabled={isConnecting}
-              className="w-full border-zinc-700 text-white hover:bg-zinc-800"
-              style={{
-                backgroundColor: '#1B1D23',
-                backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-              }}
+              className="w-full border-aqua-blue/30 text-aqua-blue hover:bg-aqua-blue/10 hover:text-aqua-light bg-black"
             >
               <Wallet className="w-5 h-5 mr-2" />
               {isConnecting ? 'Conectando...' : 'Conectar Wallet'}
