@@ -66,7 +66,7 @@ const LivesPage = () => {
   };
 
   const LiveCard = ({ live }) => (
-    <Card className="bg-slate-800 border-slate-700 hover:border-slate-600 transition-all duration-300 group">
+    <Card className="bg-black border-aqua-blue/30 hover:border-aqua-blue/50 transition-all duration-300 group card-hover">
       <CardContent className="p-0">
         <div className="relative">
           <img 
@@ -77,14 +77,14 @@ const LivesPage = () => {
           <div className="absolute inset-0 bg-black/40 rounded-t-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
             <Button
               onClick={handlePlayClick}
-              className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white rounded-full w-16 h-16 flex items-center justify-center"
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-16 h-16 flex items-center justify-center"
             >
               <Play className="w-8 h-8 ml-1" />
             </Button>
           </div>
           {live.status === 'upcoming' && (
             <div className="absolute top-3 left-3">
-              <Badge className="bg-gradient-to-r from-orange-500 to-red-600 text-white">
+              <Badge className="bg-orange-500 text-white">
                 Próximo
               </Badge>
             </div>
@@ -92,17 +92,17 @@ const LivesPage = () => {
         </div>
         
         <div className="p-4">
-          <h3 className="text-white font-semibold text-lg mb-2 line-clamp-2">
+          <h3 className="professional-title font-semibold text-lg mb-2 line-clamp-2">
             {live.title}
           </h3>
           
           <div className="flex items-center space-x-2 mb-3">
-            <div className="flex items-center space-x-1 text-slate-400 text-sm">
+            <div className="flex items-center space-x-1 text-aqua-blue/70 text-sm">
               <Calendar className="w-4 h-4" />
               <span>{live.date}</span>
             </div>
-            <span className="text-slate-500">•</span>
-            <div className="flex items-center space-x-1 text-slate-400 text-sm">
+            <span className="text-aqua-blue/50">•</span>
+            <div className="flex items-center space-x-1 text-aqua-blue/70 text-sm">
               <Users className="w-4 h-4" />
               <span>{live.time}</span>
             </div>
@@ -113,7 +113,7 @@ const LivesPage = () => {
               <Badge 
                 key={index} 
                 variant="outline" 
-                className="text-xs border-slate-600 text-slate-300"
+                className="text-xs border-aqua-blue/30 text-aqua-blue bg-aqua-blue/5"
               >
                 {tag}
               </Badge>
@@ -122,7 +122,7 @@ const LivesPage = () => {
           
           <Button
             onClick={handlePlayClick}
-            className="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
           >
             <Play className="w-4 h-4 mr-2" />
             {live.status === 'upcoming' ? 'Set reminder' : 'Play recording'}
