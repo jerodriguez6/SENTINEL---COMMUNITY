@@ -107,25 +107,25 @@ const FeedPost = ({ post }) => {
 
         {/* Metrics */}
         {post.metrics && (
-          <div className="glass-effect rounded-lg p-3 mb-4 border border-neon-blue/20">
+          <div className="bg-gray-900/50 rounded-lg p-3 mb-4 border border-aqua-blue/20">
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-neon-blue/70">Price: </span>
-                <span className="neon-text font-medium">{post.metrics.price}</span>
+                <span className="text-aqua-blue/70">Price: </span>
+                <span className="professional-text font-medium">{post.metrics.price}</span>
               </div>
               <div>
-                <span className="text-neon-blue/70">24h Change: </span>
+                <span className="text-aqua-blue/70">24h Change: </span>
                 <span className={`font-medium ${post.metrics.change.startsWith('+') ? 'text-green-400' : 'text-red-400'}`} style={{textShadow: post.metrics.change.startsWith('+') ? '0 0 10px #4ade80' : '0 0 10px #ef4444'}}>
                   {post.metrics.change}
                 </span>
               </div>
               <div>
-                <span className="text-neon-blue/70">Volume: </span>
-                <span className="neon-text font-medium">{post.metrics.volume}</span>
+                <span className="text-aqua-blue/70">Volume: </span>
+                <span className="professional-text font-medium">{post.metrics.volume}</span>
               </div>
               <div>
-                <span className="text-neon-blue/70">Market Cap: </span>
-                <span className="neon-text font-medium">{post.metrics.marketCap}</span>
+                <span className="text-aqua-blue/70">Market Cap: </span>
+                <span className="professional-text font-medium">{post.metrics.marketCap}</span>
               </div>
             </div>
           </div>
