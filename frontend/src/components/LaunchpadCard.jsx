@@ -9,10 +9,10 @@ const LaunchpadCard = ({ project }) => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'Live': return 'bg-green-500';
-      case 'Upcoming': return 'bg-gradient-to-r from-orange-500 to-red-600';
+      case 'Live': return 'bg-gradient-to-r from-aqua-blue to-aqua-light';
+      case 'Upcoming': return 'bg-gradient-to-r from-professional-blue to-aqua-blue';
       case 'Ended': return 'bg-gray-500';
-      default: return 'bg-yellow-500';
+      default: return 'bg-aqua-blue';
     }
   };
 
@@ -21,7 +21,7 @@ const LaunchpadCard = ({ project }) => {
   };
 
   return (
-    <Card className="bg-slate-800 border-slate-700 hover:border-slate-600 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10 group">
+    <Card className="glass-effect border-aqua-blue/30 hover:border-aqua-blue/50 transition-all duration-300 hover:shadow-aqua card-hover group">
       <CardHeader className="p-0">
         <div className="relative">
           <img 
@@ -30,12 +30,12 @@ const LaunchpadCard = ({ project }) => {
             className="w-full h-48 object-cover rounded-t-lg group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute top-3 left-3">
-            <Badge className={`${getStatusColor(project.status)} text-white`}>
+            <Badge className={`${getStatusColor(project.status)} text-white shadow-aqua`}>
               {project.status}
             </Badge>
           </div>
           <div className="absolute top-3 right-3">
-            <Badge variant="outline" className="bg-black/70 text-white border-white/20">
+            <Badge variant="outline" className="glass-effect text-aqua-blue border-aqua-blue/30">
               {project.type}
             </Badge>
           </div>
@@ -45,22 +45,22 @@ const LaunchpadCard = ({ project }) => {
       <CardContent className="p-6">
         {/* Project Info */}
         <div className="mb-4">
-          <h3 className="text-white font-bold text-xl mb-2 group-hover:text-orange-400 transition-colors">
+          <h3 className="professional-title font-bold text-xl mb-2 group-hover:text-aqua-light transition-colors">
             {project.name}
           </h3>
-          <p className="text-slate-400 text-sm mb-3 line-clamp-2">
+          <p className="text-aqua-blue/70 text-sm mb-3 line-clamp-2">
             {project.description}
           </p>
           
           {/* Token Info */}
           <div className="flex items-center space-x-4 mb-4">
             <div className="text-sm">
-              <span className="text-slate-400">Token: </span>
-              <span className="text-white font-medium">{project.token}</span>
+              <span className="text-aqua-blue/70">Token: </span>
+              <span className="professional-text font-medium">{project.token}</span>
             </div>
             <div className="text-sm">
-              <span className="text-slate-400">Price: </span>
-              <span className="text-white font-medium">{project.price}</span>
+              <span className="text-aqua-blue/70">Price: </span>
+              <span className="professional-text font-medium">{project.price}</span>
             </div>
           </div>
         </div>
@@ -68,18 +68,18 @@ const LaunchpadCard = ({ project }) => {
         {/* Progress Bar */}
         <div className="mb-4">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-slate-400 text-sm">Progress</span>
-            <span className="text-white text-sm font-medium">
+            <span className="text-aqua-blue/70 text-sm">Progress</span>
+            <span className="professional-text text-sm font-medium">
               {getProgressPercentage().toFixed(1)}%
             </span>
           </div>
-          <div className="w-full bg-slate-700 rounded-full h-2">
+          <div className="w-full bg-gray-700/50 rounded-full h-2">
             <div 
-              className="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-aqua-blue to-aqua-light h-2 rounded-full transition-all duration-300 shadow-aqua"
               style={{ width: `${getProgressPercentage()}%` }}
             ></div>
           </div>
-          <div className="flex justify-between items-center mt-2 text-xs text-slate-400">
+          <div className="flex justify-between items-center mt-2 text-xs text-aqua-blue/70">
             <span>{project.raised} {project.currency}</span>
             <span>{project.hardCap} {project.currency}</span>
           </div>
@@ -87,20 +87,20 @@ const LaunchpadCard = ({ project }) => {
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="bg-slate-700/50 rounded-lg p-3">
+          <div className="glass-effect rounded-lg p-3 border border-aqua-blue/20">
             <div className="flex items-center space-x-2 mb-1">
-              <Users className="w-4 h-4 text-orange-400" />
-              <span className="text-slate-400 text-xs">Participants</span>
+              <Users className="w-4 h-4 text-aqua-light" />
+              <span className="text-aqua-blue/70 text-xs">Participants</span>
             </div>
-            <span className="text-white font-medium">{project.participants}</span>
+            <span className="professional-text font-medium">{project.participants}</span>
           </div>
           
-          <div className="bg-slate-700/50 rounded-lg p-3">
+          <div className="glass-effect rounded-lg p-3 border border-aqua-blue/20">
             <div className="flex items-center space-x-2 mb-1">
-              <Clock className="w-4 h-4 text-green-400" />
-              <span className="text-slate-400 text-xs">Ends In</span>
+              <Clock className="w-4 h-4 text-aqua-light" />
+              <span className="text-aqua-blue/70 text-xs">Ends In</span>
             </div>
-            <span className="text-white font-medium">{project.timeLeft}</span>
+            <span className="professional-text font-medium">{project.timeLeft}</span>
           </div>
         </div>
 
@@ -110,7 +110,7 @@ const LaunchpadCard = ({ project }) => {
             <Badge 
               key={index} 
               variant="outline" 
-              className="text-xs border-slate-600 text-slate-300 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
+              className="text-xs border-aqua-blue/30 text-aqua-blue hover:border-aqua-light hover:text-aqua-light transition-colors cursor-pointer bg-aqua-blue/5"
             >
               {tag}
             </Badge>
@@ -120,7 +120,7 @@ const LaunchpadCard = ({ project }) => {
         {/* Actions */}
         <div className="flex space-x-2">
           <Button 
-            className="flex-1 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white"
+            className="flex-1 bg-gradient-to-r from-aqua-blue to-aqua-light hover:from-aqua-light hover:to-aqua-blue text-white shadow-aqua hover:shadow-hover transition-all duration-300"
             onClick={() => setIsInterested(!isInterested)}
           >
             <Target className="w-4 h-4 mr-2" />
@@ -130,15 +130,15 @@ const LaunchpadCard = ({ project }) => {
           <Button 
             variant="outline" 
             size="sm"
-            className="border-slate-600 text-slate-300 hover:bg-slate-700"
+            className="border-aqua-blue/30 text-aqua-blue hover:bg-aqua-blue/10 hover:border-aqua-blue/50 hover:text-aqua-light transition-all duration-300"
           >
             <ExternalLink className="w-4 h-4" />
           </Button>
         </div>
 
         {/* Additional Info */}
-        <div className="mt-4 pt-4 border-t border-slate-700">
-          <div className="flex items-center justify-between text-xs text-slate-400">
+        <div className="mt-4 pt-4 border-t border-aqua-blue/30">
+          <div className="flex items-center justify-between text-xs text-aqua-blue/70">
             <span>Network: {project.network}</span>
             <span>Min: {project.minContribution}</span>
             <span>Max: {project.maxContribution}</span>
