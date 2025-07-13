@@ -190,7 +190,7 @@ const Layout = ({ children }) => {
         <div className="w-80 bg-black border-l border-aqua-blue/30 fixed right-0 top-24 h-full overflow-y-auto z-30" style={{borderLeftColor: 'rgba(64, 224, 208, 0.3)'}}>
           <div className="p-6 space-y-6">
             {/* Trending Topics */}
-            <Card className="glass-effect border-aqua-blue/30 card-hover">
+            <Card className="bg-black border-aqua-blue/30 card-hover">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2 professional-title">
                   <TrendingUp className="w-5 h-5 text-aqua-light" />
@@ -201,7 +201,7 @@ const Layout = ({ children }) => {
                 {trendingTopics.map((topic, index) => (
                   <div 
                     key={index} 
-                    className="flex items-center justify-between p-3 rounded-lg glass-effect hover:bg-aqua-blue/10 transition-all duration-300 cursor-pointer group border border-transparent hover:border-aqua-blue/30"
+                    className="flex items-center justify-between p-3 rounded-lg bg-gray-900/50 hover:bg-aqua-blue/10 transition-all duration-300 cursor-pointer group border border-transparent hover:border-aqua-blue/30"
                   >
                     <div className="flex items-center space-x-3">
                       <span className="text-aqua-blue text-sm font-medium w-4">
@@ -223,7 +223,7 @@ const Layout = ({ children }) => {
             </Card>
 
             {/* Recommended Accounts */}
-            <Card className="glass-effect border-aqua-blue/30 card-hover">
+            <Card className="bg-black border-aqua-blue/30 card-hover">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2 professional-title">
                   <Users className="w-5 h-5 text-aqua-light" />
@@ -257,7 +257,7 @@ const Layout = ({ children }) => {
                       </div>
                       <Button 
                         size="sm" 
-                        className="sentinel-button text-aqua-blue text-xs px-3 py-1 hover:text-aqua-light"
+                        className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1"
                       >
                         <UserPlus className="w-3 h-3 mr-1" />
                         Follow
@@ -267,7 +267,7 @@ const Layout = ({ children }) => {
                     {/* Recent Posts */}
                     <div className="space-y-2">
                       {account.recentPosts.map((post, postIndex) => (
-                        <div key={postIndex} className="glass-effect rounded-lg p-2 border border-aqua-blue/20">
+                        <div key={postIndex} className="bg-gray-900/50 rounded-lg p-2 border border-aqua-blue/20">
                           <p className="text-aqua-blue text-xs mb-1">
                             {post.text}
                           </p>
