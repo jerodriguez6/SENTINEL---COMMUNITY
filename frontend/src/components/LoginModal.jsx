@@ -144,14 +144,14 @@ const LoginModal = ({ isOpen, onClose }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-aqua-blue/70 mb-2">
                 Contraseña
               </label>
               <div className="relative">
                 <Input
                   type={showPassword ? 'text' : 'password'}
                   placeholder="••••••••"
-                  className="pr-10 bg-zinc-800 border-zinc-700 text-white placeholder-slate-400"
+                  className="pr-10 bg-gray-900/50 border-aqua-blue/30 text-aqua-blue placeholder-aqua-blue/60"
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   required
@@ -159,7 +159,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-aqua-blue/70 hover:text-aqua-light"
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
@@ -168,13 +168,13 @@ const LoginModal = ({ isOpen, onClose }) => {
 
             {!isLogin && (
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <label className="block text-sm font-medium text-aqua-blue/70 mb-2">
                   Confirmar contraseña
                 </label>
                 <Input
                   type="password"
                   placeholder="••••••••"
-                  className="bg-zinc-800 border-zinc-700 text-white placeholder-slate-400"
+                  className="bg-gray-900/50 border-aqua-blue/30 text-aqua-blue placeholder-aqua-blue/60"
                   value={formData.confirmPassword}
                   onChange={(e) => setFormData({...formData, confirmPassword: e.target.value})}
                   required
@@ -184,11 +184,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
             <Button
               type="submit"
-              className="w-full text-white"
-              style={{
-                backgroundColor: '#1B1D23',
-                backgroundImage: 'linear-gradient(90deg, #4F5961, #1B1D23)',
-              }}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
             >
               {isLogin ? 'Iniciar Sesión' : 'Registrarse'}
             </Button>
@@ -198,7 +194,7 @@ const LoginModal = ({ isOpen, onClose }) => {
           <div className="text-center">
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="text-blue-400 hover:text-blue-300 text-sm"
+              className="text-aqua-blue hover:text-aqua-light text-sm"
             >
               {isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión'}
             </button>
