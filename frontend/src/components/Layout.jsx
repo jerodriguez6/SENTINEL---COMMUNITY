@@ -141,18 +141,28 @@ const Layout = ({ children }) => {
                 key={item.id}
                 to={item.path}
                 onClick={(item.id === 'mypage' || item.id === 'notifications') ? handleLoginRequired : undefined}
-                className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-all duration-300 group border border-transparent ${
+                className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-all duration-300 group relative ${
                   isActive(item.path)
-                    ? 'bg-gradient-to-r from-neon-blue/20 to-neon-cyan/20 text-neon-blue border-l-4 border-neon-blue shadow-neon'
-                    : 'text-neon-blue hover:text-neon-cyan hover:bg-neon-blue/10 hover:border-neon-blue/20'
+                    ? 'bg-gradient-to-r from-aqua-blue/20 to-aqua-light/10 text-aqua-light border-l-4 border-aqua-blue shadow-aqua'
+                    : 'text-aqua-blue hover:text-aqua-light hover:bg-aqua-blue/10 hover:border-l-4 hover:border-aqua-blue/50'
                 } ${isSidebarMinimized && !isMobile ? 'justify-center' : ''}`}
                 title={isSidebarMinimized && !isMobile ? item.name : undefined}
               >
+                {/* Indicador de selección activa */}
+                {isActive(item.path) && (
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-aqua-light to-aqua-blue rounded-r-lg"></div>
+                )}
                 <item.icon className={`w-5 h-5 ${
-                  isActive(item.path) ? 'text-neon-blue' : 'text-neon-blue group-hover:text-neon-cyan'
+                  isActive(item.path) ? 'text-aqua-light' : 'text-aqua-blue group-hover:text-aqua-light'
                 }`} />
                 {(!isSidebarMinimized || isMobile) && (
-                  <span className="font-medium">{item.name}</span>
+                  <span className={`font-medium ${
+                    isActive(item.path) ? 'text-aqua-light font-semibold' : ''
+                  }`}>{item.name}</span>
+                )}
+                {/* Punto indicador para sidebar minimizado */}
+                {isActive(item.path) && isSidebarMinimized && !isMobile && (
+                  <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-aqua-light rounded-full"></div>
                 )}
               </Link>
             ))}
