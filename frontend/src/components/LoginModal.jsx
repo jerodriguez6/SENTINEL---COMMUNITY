@@ -117,25 +117,25 @@ const LoginModal = ({ isOpen, onClose }) => {
           {/* Divider */}
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-zinc-700"></div>
+              <div className="w-full border-t border-aqua-blue/30"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-zinc-900 px-2 text-slate-400">o</span>
+              <span className="bg-black px-2 text-aqua-blue/70">o</span>
             </div>
           </div>
 
           {/* Email Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-aqua-blue/70 mb-2">
                 Correo electrónico
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-aqua-blue/70" />
                 <Input
                   type="email"
                   placeholder="tu@email.com"
-                  className="pl-10 bg-zinc-800 border-zinc-700 text-white placeholder-slate-400"
+                  className="pl-10 bg-gray-900/50 border-aqua-blue/30 text-aqua-blue placeholder-aqua-blue/60"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   required
