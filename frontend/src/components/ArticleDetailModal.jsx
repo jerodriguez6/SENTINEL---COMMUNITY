@@ -68,11 +68,11 @@ const ArticleDetailModal = ({ article, isOpen, onClose }) => {
           <div className="prose prose-invert prose-orange max-w-none">
             {article.fullContent ? (
               <div 
-                className="text-slate-300 leading-relaxed"
+                className="text-aqua-blue leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: article.fullContent }}
               />
             ) : (
-              <div className="text-slate-300 leading-relaxed space-y-4">
+              <div className="text-aqua-blue leading-relaxed space-y-4">
                 <p>{article.description}</p>
                 <p>
                   En SHARK Technology no solo construimos productos. <strong>Impulsamos una nueva generación de plataformas que integran Inteligencia Artificial, Blockchain y Automatización</strong> para redefinir cómo interactuamos con la tecnología.
@@ -88,14 +88,14 @@ const ArticleDetailModal = ({ article, isOpen, onClose }) => {
                 <p>
                   Así como CoinMarketCap cataloga proyectos por su capitalización, <strong>Sentinel AI creará el estándar global de confianza y reputación para proyectos tecnológicos en Web3</strong>.
                 </p>
-                <h3 className="text-xl font-semibold text-white mt-6 mb-3">🌐 ¿Qué es Sentinel AI?</h3>
+                <h3 className="professional-title text-xl font-semibold mt-6 mb-3">🌐 ¿Qué es Sentinel AI?</h3>
                 <p>
                   <strong>Sentinel AI</strong> es mucho más que una plataforma de auditoría. Es el nuevo <strong>Tech MarketCap</strong>, un sistema que evalúa la <strong>reputación tecnológica</strong> de los proyectos Web3 con precisión, transparencia e inteligencia artificial.
                 </p>
                 <p>
                   🔍 En un ecosistema donde la confianza lo es todo, contar con una auditoría automatizada y una puntuación visible puede marcar la diferencia entre captar inversión o pasar desapercibido.
                 </p>
-                <h3 className="text-xl font-semibold text-white mt-6 mb-3">🔥 Pioneros en el Tech MarketCap de Reputación</h3>
+                <h3 className="professional-title text-xl font-semibold mt-6 mb-3">🔥 Pioneros en el Tech MarketCap de Reputación</h3>
                 <p>
                   En lugar de clasificar por hype o capitalización, <strong>clasificamos por tecnología real, cumplimiento de buenas prácticas y seguridad del código.</strong>
                 </p>
@@ -115,7 +115,7 @@ const ArticleDetailModal = ({ article, isOpen, onClose }) => {
               <Badge 
                 key={index} 
                 variant="outline" 
-                className="border-slate-600 text-slate-300 hover:border-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
+                className="border-aqua-blue/30 text-aqua-blue hover:border-aqua-light hover:text-aqua-light transition-colors cursor-pointer bg-aqua-blue/5"
               >
                 #{tag}
               </Badge>
@@ -123,17 +123,17 @@ const ArticleDetailModal = ({ article, isOpen, onClose }) => {
           </div>
 
           {/* Stats and Actions */}
-          <div className="flex items-center justify-between border-t border-slate-700 pt-6">
+          <div className="flex items-center justify-between border-t border-aqua-blue/30 pt-6">
             <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2 text-slate-400">
+              <div className="flex items-center space-x-2 text-aqua-blue/70">
                 <Eye className="w-5 h-5" />
                 <span>{article.views} vistas</span>
               </div>
-              <div className="flex items-center space-x-2 text-slate-400">
+              <div className="flex items-center space-x-2 text-aqua-blue/70">
                 <ThumbsUp className="w-5 h-5" />
                 <span>{article.likes} me gusta</span>
               </div>
-              <div className="flex items-center space-x-2 text-slate-400">
+              <div className="flex items-center space-x-2 text-aqua-blue/70">
                 <MessageCircle className="w-5 h-5" />
                 <span>{article.comments} comentarios</span>
               </div>
@@ -143,7 +143,7 @@ const ArticleDetailModal = ({ article, isOpen, onClose }) => {
               <Button 
                 variant="outline" 
                 size="sm"
-                className="border-slate-600 text-slate-300 hover:bg-slate-700"
+                className="border-aqua-blue/30 text-aqua-blue hover:bg-aqua-blue/10 hover:text-aqua-light"
               >
                 <Share2 className="w-4 h-4 mr-2" />
                 Compartir
@@ -151,7 +151,7 @@ const ArticleDetailModal = ({ article, isOpen, onClose }) => {
               <Button 
                 variant="outline" 
                 size="sm"
-                className="border-slate-600 text-slate-300 hover:bg-slate-700"
+                className="border-aqua-blue/30 text-aqua-blue hover:bg-aqua-blue/10 hover:text-aqua-light"
               >
                 <Bookmark className="w-4 h-4 mr-2" />
                 Guardar
