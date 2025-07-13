@@ -21,7 +21,7 @@ const LaunchpadCard = ({ project }) => {
   };
 
   return (
-    <Card className="glass-effect border-aqua-blue/30 hover:border-aqua-blue/50 transition-all duration-300 hover:shadow-aqua card-hover group">
+    <Card className="bg-black border-aqua-blue/30 hover:border-aqua-blue/50 transition-all duration-300 hover:shadow-aqua card-hover group">
       <CardHeader className="p-0">
         <div className="relative">
           <img 
