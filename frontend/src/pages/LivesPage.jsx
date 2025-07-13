@@ -174,7 +174,7 @@ const LivesPage = () => {
 
         {/* Upcoming Section */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-white mb-4">Próximos</h2>
+          <h2 className="professional-title text-xl font-semibold mb-4">Próximos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {upcomingLives.map((live) => (
               <LiveCard key={live.id} live={live} />
@@ -185,8 +185,8 @@ const LivesPage = () => {
         {/* Past Section */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-white">Pasados</h2>
-            <Button variant="ghost" className="text-orange-400 hover:text-orange-300">
+            <h2 className="professional-title text-xl font-semibold">Pasados</h2>
+            <Button variant="ghost" className="text-aqua-blue hover:text-aqua-light">
               Ver todos
             </Button>
           </div>
