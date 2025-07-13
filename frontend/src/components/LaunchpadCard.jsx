@@ -87,7 +87,7 @@ const LaunchpadCard = ({ project }) => {
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="glass-effect rounded-lg p-3 border border-aqua-blue/20">
+          <div className="bg-gray-900/50 rounded-lg p-3 border border-aqua-blue/20">
             <div className="flex items-center space-x-2 mb-1">
               <Users className="w-4 h-4 text-aqua-light" />
               <span className="text-aqua-blue/70 text-xs">Participants</span>
@@ -95,7 +95,7 @@ const LaunchpadCard = ({ project }) => {
             <span className="professional-text font-medium">{project.participants}</span>
           </div>
           
-          <div className="glass-effect rounded-lg p-3 border border-aqua-blue/20">
+          <div className="bg-gray-900/50 rounded-lg p-3 border border-aqua-blue/20">
             <div className="flex items-center space-x-2 mb-1">
               <Clock className="w-4 h-4 text-aqua-light" />
               <span className="text-aqua-blue/70 text-xs">Ends In</span>
