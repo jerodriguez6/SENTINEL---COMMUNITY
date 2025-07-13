@@ -7,23 +7,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Colores neón futuristas
-        'neon-blue': '#00BFFF',         // Azul neón principal para texto
-        'neon-blue-bright': '#0080FF',  // Azul más intenso para títulos
-        'neon-cyan': '#00FFFF',         // Cyan neón para acentos
-        'neon-blue-glow': '#4DA6FF',    // Para efectos de glow
-        'dark-bg': '#0a0a0a',           // Fondo oscuro futurista
-        'card-bg': '#111111',           // Fondo de tarjetas
+        // Colores azules profesionales más suaves
+        'professional-blue': '#4A90E2',        // Azul principal profesional
+        'professional-blue-light': '#6BA6F0',  // Azul claro para acentos
+        'professional-blue-dark': '#2E5F8A',   // Azul oscuro para títulos
+        'text-blue': '#5BA3F5',                // Azul para texto general
+        'accent-blue': '#3B82F6',              // Azul de acento
+        'dark-bg': '#0f1419',                  // Fondo oscuro profesional
+        'card-bg': '#1a202c',                  // Fondo de tarjetas
       },
       textColor: {
-        'default': '#00BFFF',           // Color por defecto del texto
-        'title': '#0080FF',             // Color para títulos
-        'accent': '#00FFFF',            // Color de acento
+        'default': '#5BA3F5',                  // Color por defecto del texto
+        'title': '#4A90E2',                    // Color para títulos
+        'accent': '#3B82F6',                   // Color de acento
       },
       boxShadow: {
-        'neon': '0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF',
-        'neon-title': '0 0 15px #0080FF, 0 0 30px #0080FF, 0 0 45px #0080FF',
-        'neon-hover': '0 0 20px #00FFFF, 0 0 40px #00FFFF',
+        'subtle': '0 2px 10px rgba(74, 144, 226, 0.1)',
+        'card': '0 4px 15px rgba(74, 144, 226, 0.15)',
+        'hover': '0 6px 20px rgba(74, 144, 226, 0.2)',
       }
     },
   },
