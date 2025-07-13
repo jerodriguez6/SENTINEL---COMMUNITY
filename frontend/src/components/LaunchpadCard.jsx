@@ -35,7 +35,7 @@ const LaunchpadCard = ({ project }) => {
             </Badge>
           </div>
           <div className="absolute top-3 right-3">
-            <Badge variant="outline" className="glass-effect text-aqua-blue border-aqua-blue/30">
+            <Badge variant="outline" className="bg-black/70 text-aqua-blue border-aqua-blue/30">
               {project.type}
             </Badge>
           </div>
