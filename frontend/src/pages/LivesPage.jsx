@@ -151,10 +151,10 @@ const LivesPage = () => {
           {/* Filters */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <Select value={selectedFilter} onValueChange={setSelectedFilter}>
-              <SelectTrigger className="w-40 bg-slate-800 border-slate-700 text-white">
+              <SelectTrigger className="w-40 bg-black border-aqua-blue/30 text-aqua-blue">
                 <SelectValue placeholder="Filtrar" />
               </SelectTrigger>
-              <SelectContent className="bg-slate-800 border-slate-700">
+              <SelectContent className="bg-black border-aqua-blue/30">
                 <SelectItem value="all">Todos</SelectItem>
                 <SelectItem value="upcoming">Próximos</SelectItem>
                 <SelectItem value="past">Pasados</SelectItem>
@@ -164,7 +164,7 @@ const LivesPage = () => {
             <Button 
               variant="outline" 
               size="sm" 
-              className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white"
+              className="border-aqua-blue/30 text-aqua-blue hover:bg-aqua-blue/10 hover:text-aqua-light"
             >
               <Filter className="w-4 h-4 mr-2" />
               Más Filtros
