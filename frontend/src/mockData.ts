@@ -1,4 +1,80 @@
-export const mockArticles = [
+// Type definitions
+export interface Article {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  author: string;
+  views: string;
+  likes: string;
+  comments: string;
+  tags: string[];
+  timestamp: string;
+  fullContent?: string;
+}
+
+export interface FeedPostMetrics {
+  price: string;
+  change: string;
+  volume: string;
+  marketCap: string;
+}
+
+export interface FeedPost {
+  id: number;
+  author: string;
+  handle: string;
+  verified: boolean;
+  type: string;
+  timestamp: string;
+  content: string;
+  image: string;
+  chartData: string;
+  metrics?: FeedPostMetrics;
+  tags: string[];
+  likes: string;
+  comments: string;
+  shares: string;
+}
+
+export interface LaunchpadProject {
+  id: number;
+  name: string;
+  description: string;
+  token: string;
+  price: string;
+  image: string;
+  status: string;
+  type: string;
+  raised: number;
+  hardCap: number;
+  currency: string;
+  participants: string;
+  timeLeft: string;
+  network: string;
+  minContribution: string;
+  maxContribution: string;
+  tags: string[];
+}
+
+export interface TrendingTopic {
+  name: string;
+  posts: string;
+}
+
+export interface RecommendedAccount {
+  name: string;
+  handle: string;
+  followers: string;
+  reputation: string;
+  verified: boolean;
+  description: string;
+  recentPosts: string[];
+  postTimes: string[];
+}
+
+export const mockArticles: Article[] = [
   {
     id: 1,
     title: "🚀 Sentinel AI: Nace la Autoridad #1 en Reputación Tecnológica Web3 Y Auditoría Automatizada 📊🛡️",
