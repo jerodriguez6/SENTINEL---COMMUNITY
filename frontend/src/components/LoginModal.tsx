@@ -5,11 +5,22 @@ import { Input } from './ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { useAuth } from '../context/AuthContext';
 
-const LoginModal = ({ isOpen, onClose }) => {
-  const [isLogin, setIsLogin] = useState(true);
-  const [showPassword, setShowPassword] = useState(false);
-  const [isConnecting, setIsConnecting] = useState(false);
-  const [formData, setFormData] = useState({
+interface LoginModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+interface FormData {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
+  const [isLogin, setIsLogin] = useState<boolean>(true);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [isConnecting, setIsConnecting] = useState<boolean>(false);
+  const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
     confirmPassword: ''
@@ -17,13 +28,12 @@ const LoginModal = ({ isOpen, onClose }) => {
 
   const { login, connectWallet } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle email login/register logic here
     const userData = {
-      type: 'email',
+      type: 'email' as const,
       email: formData.email,
-      name: formData.email.split('@')[0],
       displayName: formData.email.split('@')[0]
     };
     
@@ -35,9 +45,8 @@ const LoginModal = ({ isOpen, onClose }) => {
   const handleGoogleLogin = () => {
     // Handle Google login
     const userData = {
-      type: 'google',
+      type: 'email' as const,
       email: 'user@gmail.com',
-      name: 'Google User',
       displayName: 'Google User'
     };
     
@@ -64,7 +73,7 @@ const LoginModal = ({ isOpen, onClose }) => {
       }, 1000);
     } catch (error) {
       console.error('Error connecting wallet:', error);
-      alert('Error al conectar la wallet: ' + error.message);
+      alert('Error al conectar la wallet: ' + (error as Error).message);
     } finally {
       setIsConnecting(false);
     }

@@ -1,9 +1,16 @@
 import React from 'react';
-import { X, Eye, ThumbsUp, MessageCircle, Share2, Bookmark, Calendar, User } from 'lucide-react';
+import { X, Eye, ThumbsUp, MessageCircle, Share2, Bookmark, Calendar } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import { Article } from '../mockData';
 
-const ArticleDetailModal = ({ article, isOpen, onClose }) => {
+interface ArticleDetailModalProps {
+  article: Article;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ArticleDetailModal: React.FC<ArticleDetailModalProps> = ({ article, isOpen, onClose }) => {
   if (!isOpen || !article) return null;
 
   return (
