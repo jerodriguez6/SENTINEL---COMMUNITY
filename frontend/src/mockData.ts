@@ -189,7 +189,7 @@ export const mockArticles: Article[] = [
   }
 ];
 
-export const mockFeedPosts = [
+export const mockFeedPosts: FeedPost[] = [
   {
     id: 1,
     author: "SENTINEL AI",
