@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { Clock, Users, Target, TrendingUp, ExternalLink } from 'lucide-react';
+import { Clock, Users, Target, ExternalLink } from 'lucide-react';
+import { LaunchpadProject } from '../mockData';
 
-const LaunchpadCard = ({ project }) => {
-  const [isInterested, setIsInterested] = useState(false);
+interface LaunchpadCardProps {
+  project: LaunchpadProject;
+}
 
-  const getStatusColor = (status) => {
+const LaunchpadCard: React.FC<LaunchpadCardProps> = ({ project }) => {
+  const [isInterested, setIsInterested] = useState<boolean>(false);
+
+  const getStatusColor = (status: string): string => {
     switch (status) {
       case 'Live': return 'bg-green-500';
       case 'Upcoming': return 'bg-orange-500';
@@ -16,7 +21,7 @@ const LaunchpadCard = ({ project }) => {
     }
   };
 
-  const getProgressPercentage = () => {
+  const getProgressPercentage = (): number => {
     return (project.raised / project.hardCap) * 100;
   };
 

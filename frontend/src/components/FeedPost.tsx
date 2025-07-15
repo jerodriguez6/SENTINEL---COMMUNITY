@@ -3,11 +3,16 @@ import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Heart, MessageCircle, Share2, Bookmark, TrendingUp, MoreHorizontal, UserPlus } from 'lucide-react';
+import { FeedPost as FeedPostType } from '../mockData';
 
-const FeedPost = ({ post }) => {
-  const [isLiked, setIsLiked] = useState(false);
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isFollowing, setIsFollowing] = useState(false);
+interface FeedPostProps {
+  post: FeedPostType;
+}
+
+const FeedPost: React.FC<FeedPostProps> = ({ post }) => {
+  const [isLiked, setIsLiked] = useState<boolean>(false);
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
+  const [isFollowing, setIsFollowing] = useState<boolean>(false);
 
   const handleFollow = () => {
     setIsFollowing(!isFollowing);
@@ -77,7 +82,7 @@ const FeedPost = ({ post }) => {
             <div className="relative overflow-hidden rounded-lg mb-3 border border-neon-blue/20">
               <img 
                 src={post.image} 
-                alt={post.title}
+                alt="Post content"
                 className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               {post.chartData && (

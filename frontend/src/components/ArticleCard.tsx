@@ -3,9 +3,14 @@ import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { Eye, ThumbsUp, MessageCircle, Share2, Bookmark } from 'lucide-react';
 import ArticleDetailModal from './ArticleDetailModal';
+import { Article } from '../mockData';
 
-const ArticleCard = ({ article }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+interface ArticleCardProps {
+  article: Article;
+}
+
+const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <>
