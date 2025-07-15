@@ -1,7 +1,14 @@
 import React from 'react';
 
-const CryptoTicker = () => {
-  const cryptoData = [
+interface CryptoData {
+  symbol: string;
+  logo: string;
+  change: string;
+  isPositive: boolean;
+}
+
+const CryptoTicker: React.FC = () => {
+  const cryptoData: CryptoData[] = [
     { symbol: 'BTC', logo: '₿', change: '+2.4%', isPositive: true },
     { symbol: 'ETH', logo: 'Ξ', change: '-1.2%', isPositive: false },
     { symbol: 'BNB', logo: '🔶', change: '+3.7%', isPositive: true },

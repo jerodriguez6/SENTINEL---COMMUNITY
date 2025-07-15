@@ -1,21 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Rocket, Radio, FileText, Bell, User, MoreHorizontal, Users, TrendingUp, Hash, UserPlus, Verified, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Home, Rocket, Radio, FileText, Bell, User, MoreHorizontal, Users, TrendingUp, Hash, UserPlus, Verified, ChevronLeft, ChevronRight, X, LucideIcon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { useAuth } from '../context/AuthContext';
 import LoginModal from './LoginModal';
 
-const Layout = ({ children }) => {
+interface MenuItem {
+  id: string;
+  name: string;
+  icon: LucideIcon;
+  path: string;
+}
+
+interface TrendingTopic {
+  name: string;
+  posts: string;
+}
+
+interface RecentPost {
+  text: string;
+  time: string;
+}
+
+interface RecommendedAccount {
+  name: string;
+  handle: string;
+  verified: boolean;
+  recentPosts: RecentPost[];
+}
+
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isSidebarMinimized, setIsSidebarMinimized] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
+  const [isSidebarMinimized, setIsSidebarMinimized] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   
   const { isAuthenticated } = useAuth();
   
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     { id: 'feed', name: 'Feed', icon: Home, path: '/' },
     { id: 'launchpad', name: 'Launchpad', icon: Rocket, path: '/launchpad' },
     { id: 'lives', name: 'Lives', icon: Radio, path: '/lives' },
@@ -25,9 +53,9 @@ const Layout = ({ children }) => {
     { id: 'more', name: 'More', icon: MoreHorizontal, path: '/more' },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path: string): boolean => location.pathname === path;
 
-  const handleLoginRequired = (e) => {
+  const handleLoginRequired = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (!isAuthenticated) {
       setIsLoginModalOpen(true);
@@ -46,7 +74,7 @@ const Layout = ({ children }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const trendingTopics = [
+  const trendingTopics: TrendingTopic[] = [
     { name: 'YZI', posts: '1.2K' },
     { name: 'Apple', posts: '987' },
     { name: 'CMC Launch: Aster#', posts: '756' },
@@ -54,7 +82,7 @@ const Layout = ({ children }) => {
     { name: 'CMC Quest: Earn Rewards#', posts: '432' },
   ];
 
-  const recommendedAccounts = [
+  const recommendedAccounts: RecommendedAccount[] = [
     {
       name: 'NewCoinListings',
       handle: 'NewCoinListings',

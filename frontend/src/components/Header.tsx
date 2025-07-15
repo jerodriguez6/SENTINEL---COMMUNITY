@@ -2,19 +2,26 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Search, User, Menu, X, ChevronDown, Wallet, Shield, TrendingUp } from 'lucide-react';
+import { Search, User, Menu, X, ChevronDown, Wallet, Shield, TrendingUp, LucideIcon } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import LoginModal from './LoginModal';
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [showUserMenu, setShowUserMenu] = useState(false);
+interface NavigationItem {
+  name: string;
+  href: string;
+  icon?: LucideIcon;
+  active?: boolean;
+}
+
+const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
+  const [showUserMenu, setShowUserMenu] = useState<boolean>(false);
   
   const { isAuthenticated, user, logout } = useAuth();
 
-  const navigationItems = [
+  const navigationItems: NavigationItem[] = [
     { name: 'Tech MarketCap', href: '#', icon: TrendingUp },
     { name: 'Auditorías', href: '#', icon: Shield },
     { name: 'Exchanges', href: '#' },
@@ -99,7 +106,7 @@ const Header = () => {
                       ) : (
                         <>
                           <User className="w-4 h-4" />
-                          <span>{user?.name || 'Usuario'}</span>
+                          <span>{user?.displayName || 'Usuario'}</span>
                         </>
                       )}
                       <ChevronDown className="w-3 h-3" />
@@ -191,7 +198,7 @@ const Header = () => {
                         ) : (
                           <div className="flex items-center space-x-2">
                             <User className="w-4 h-4" />
-                            <span>{user?.name || 'Usuario'}</span>
+                            <span>{user?.displayName || 'Usuario'}</span>
                           </div>
                         )}
                       </div>
