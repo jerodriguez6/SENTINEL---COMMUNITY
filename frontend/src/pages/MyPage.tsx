@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import LoginModal from '../components/LoginModal';
 
-const MyPage = () => {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(true);
+const MyPage: React.FC = () => {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(true);
 
   return (
     <Layout>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Users, Calendar, Clock, Filter } from 'lucide-react';
+import { Play, Users, Calendar, Filter } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Card, CardContent } from '../components/ui/card';
@@ -7,11 +7,27 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import Layout from '../components/Layout';
 import LoginModal from '../components/LoginModal';
 
-const LivesPage = () => {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState('all');
+interface Live {
+  id: number;
+  title: string;
+  host: string;
+  participants: string;
+  date: string;
+  time: string;
+  thumbnail: string;
+  tags: string[];
+  status: 'upcoming' | 'past';
+}
 
-  const upcomingLives = [
+interface LiveCardProps {
+  live: Live;
+}
+
+const LivesPage: React.FC = () => {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
+
+  const upcomingLives: Live[] = [
     {
       id: 1,
       title: 'Weekly Crypto Forecast',
@@ -25,7 +41,7 @@ const LivesPage = () => {
     }
   ];
 
-  const pastLives = [
+  const pastLives: Live[] = [
     {
       id: 2,
       title: 'BREAKING: Crypto Surges Bitcoin ETF',
@@ -65,7 +81,7 @@ const LivesPage = () => {
     setIsLoginModalOpen(true);
   };
 
-  const LiveCard = ({ live }) => (
+  const LiveCard: React.FC<LiveCardProps> = ({ live }) => (
     <Card className="bg-black border-aqua-blue/30 hover:border-aqua-blue/50 transition-all duration-300 group card-hover">
       <CardContent className="p-0">
         <div className="relative">
