@@ -6,9 +6,9 @@ import Layout from '../components/Layout';
 import LaunchpadCard from '../components/LaunchpadCard';
 import { mockLaunchpadProjects } from '../mockData';
 
-const LaunchpadPage = () => {
-  const [selectedStatus, setSelectedStatus] = useState('all');
-  const [selectedType, setSelectedType] = useState('all');
+const LaunchpadPage: React.FC = () => {
+  const [selectedStatus, setSelectedStatus] = useState<string>('all');
+  const [selectedType, setSelectedType] = useState<string>('all');
 
   return (
     <Layout>

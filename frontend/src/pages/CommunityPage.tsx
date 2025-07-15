@@ -6,9 +6,9 @@ import Layout from '../components/Layout';
 import ArticleCard from '../components/ArticleCard';
 import { mockArticles } from '../mockData';
 
-const CommunityPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [sortBy, setSortBy] = useState('newest');
+const CommunityPage: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [sortBy, setSortBy] = useState<string>('newest');
 
   return (
     <Layout>

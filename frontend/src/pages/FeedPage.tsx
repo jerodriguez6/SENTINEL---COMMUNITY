@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Filter, TrendingUp, Plus } from 'lucide-react';
+import { Filter, Plus } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import Layout from '../components/Layout';
@@ -8,10 +8,10 @@ import LoginModal from '../components/LoginModal';
 import { useAuth } from '../context/AuthContext';
 import { mockFeedPosts } from '../mockData';
 
-const FeedPage = () => {
-  const [selectedFilter, setSelectedFilter] = useState('all');
-  const [sortBy, setSortBy] = useState('recent');
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+const FeedPage: React.FC = () => {
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
+  const [sortBy, setSortBy] = useState<string>('recent');
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
   
   const { isAuthenticated } = useAuth();
 
