@@ -349,7 +349,7 @@ export const mockLaunchpadProjects: LaunchpadProject[] = [
   }
 ];
 
-export const mockTrendingTopics = [
+export const mockTrendingTopics: TrendingTopic[] = [
   { name: "YZI", posts: "1.2K" },
   { name: "Apple", posts: "987" },
   { name: "CMC Launch: Aster#", posts: "756" },
