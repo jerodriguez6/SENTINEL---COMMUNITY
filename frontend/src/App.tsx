@@ -10,7 +10,7 @@ import LivesPage from "./pages/LivesPage";
 import MyPage from "./pages/MyPage";
 import { AuthProvider } from "./context/AuthContext";
 
-function App() {
+const App: React.FC = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
@@ -30,6 +30,6 @@ function App() {
       </BrowserRouter>
     </AuthProvider>
   );
-}
+};
 
 export default App;
