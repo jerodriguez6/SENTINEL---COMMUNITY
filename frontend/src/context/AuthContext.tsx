@@ -1,8 +1,37 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-const AuthContext = createContext();
+// Type definitions
+interface User {
+  type: 'wallet' | 'email';
+  address?: string;
+  displayName: string;
+  email?: string;
+}
 
-export const useAuth = () => {
+interface AuthContextType {
+  isAuthenticated: boolean;
+  user: User | null;
+  walletAddress: string;
+  isWalletConnected: boolean;
+  login: (userData: User) => void;
+  logout: () => void;
+  connectWallet: () => Promise<string>;
+}
+
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+// Extend Window interface to include ethereum
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error('useAuth must be used within an AuthProvider');
@@ -10,11 +39,11 @@ export const useAuth = () => {
   return context;
 };
 
-export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
-  const [walletAddress, setWalletAddress] = useState('');
-  const [isWalletConnected, setIsWalletConnected] = useState(false);
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [walletAddress, setWalletAddress] = useState<string>('');
+  const [isWalletConnected, setIsWalletConnected] = useState<boolean>(false);
 
   // Check for existing wallet connection on load
   useEffect(() => {
@@ -44,7 +73,7 @@ export const AuthProvider = ({ children }) => {
     checkWalletConnection();
   }, []);
 
-  const login = (userData) => {
+  const login = (userData: User) => {
     setIsAuthenticated(true);
     setUser(userData);
   };
@@ -56,7 +85,7 @@ export const AuthProvider = ({ children }) => {
     setIsWalletConnected(false);
   };
 
-  const connectWallet = async () => {
+  const connectWallet = async (): Promise<string> => {
     if (!window.ethereum) {
       throw new Error('MetaMask no está instalado');
     }
@@ -78,13 +107,14 @@ export const AuthProvider = ({ children }) => {
         });
         return address;
       }
+      throw new Error('No accounts found');
     } catch (error) {
       console.error('Error connecting wallet:', error);
       throw error;
     }
   };
 
-  const value = {
+  const value: AuthContextType = {
     isAuthenticated,
     user,
     walletAddress,
