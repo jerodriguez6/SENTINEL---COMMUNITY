@@ -270,7 +270,7 @@ export const mockFeedPosts: FeedPost[] = [
   }
 ];
 
-export const mockLaunchpadProjects = [
+export const mockLaunchpadProjects: LaunchpadProject[] = [
   {
     id: 1,
     name: "NeuroChain AI",
