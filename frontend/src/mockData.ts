@@ -360,7 +360,7 @@ export const mockTrendingTopics: TrendingTopic[] = [
   { name: "DeFi", posts: "234" }
 ];
 
-export const mockRecommendedAccounts = [
+export const mockRecommendedAccounts: RecommendedAccount[] = [
   {
     name: "NewCoinListings",
     handle: "NewCoinListings",
