@@ -32,27 +32,29 @@ const CryptoTicker: React.FC = () => {
   ];
 
   return (
-    <div className="bg-zinc-950 border-b border-zinc-800 overflow-hidden relative h-12">
-      <div className="ticker-wrapper h-full">
-        <div className="ticker-content h-full">
-          {/* Triple content for seamless infinite loop */}
-          {[...cryptoData, ...cryptoData, ...cryptoData].map((crypto, index) => (
-            <div key={index} className="ticker-item flex items-center space-x-3 whitespace-nowrap h-full">
-              <div className="flex items-center space-x-2">
-                <span className="text-lg">{crypto.logo}</span>
-                <span className="text-white font-medium text-sm">{crypto.symbol}</span>
+    <>
+      <div className="bg-zinc-950 border-b border-zinc-800 overflow-hidden relative h-12">
+        <div className="ticker-wrapper h-full">
+          <div className="ticker-content h-full">
+            {/* Triple content for seamless infinite loop */}
+            {[...cryptoData, ...cryptoData, ...cryptoData].map((crypto, index) => (
+              <div key={index} className="ticker-item flex items-center space-x-3 whitespace-nowrap h-full">
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">{crypto.logo}</span>
+                  <span className="text-white font-medium text-sm">{crypto.symbol}</span>
+                </div>
+                <span className={`text-sm font-medium ${
+                  crypto.isPositive ? 'text-green-400' : 'text-red-400'
+                }`}>
+                  {crypto.change}
+                </span>
               </div>
-              <span className={`text-sm font-medium ${
-                crypto.isPositive ? 'text-green-400' : 'text-red-400'
-              }`}>
-                {crypto.change}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       
-      <style jsx>{`
+      <style>{`
         .ticker-wrapper {
           width: 100%;
           overflow: hidden;
@@ -82,7 +84,7 @@ const CryptoTicker: React.FC = () => {
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
